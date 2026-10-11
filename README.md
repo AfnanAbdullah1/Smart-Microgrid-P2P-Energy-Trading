@@ -22,11 +22,17 @@ This project builds a **direct peer-to-peer (P2P) microgrid**:
 - An **AI LSTM neural network** predicts future power usage to prevent shortages.
 - A **live web dashboard** lets users watch real-time energy flow, voltage, current, and blockchain transactions as they happen.
 
+### Conceptual Microgrid Architecture
+![Conceptual Architecture](Images/chapter_1_conceptual_architecture_1775327837724.png)
+
 ---
 
 ## 🖼️ Architecture & Visuals
 
-### System Flow Diagram
+### System Architecture Block Diagram
+![System Architecture Block Diagram](Images/thesis_system_architecture_block_diagram_1775327892715.png)
+
+### Hardware & Telemetry Data Flow
 ![System Architecture](Images/system_architecture_corrected_1775327647232.png)
 
 ```
@@ -67,6 +73,14 @@ This project builds a **direct peer-to-peer (P2P) microgrid**:
 
 ---
 
+## 🖥️ Live Web Dashboard Preview
+
+The system features a real-time responsive web dashboard (served by the Node.js backend at `http://localhost:3000`), displaying live telemetry gauges, active power routing status, AI forecasts, and confirmed blockchain transactions:
+
+![Live Web Dashboard](Images/WebPage.png)
+
+---
+
 ## 🛠️ Tech Stack & Hardware
 
 ### Software Stack
@@ -89,6 +103,11 @@ This project builds a **direct peer-to-peer (P2P) microgrid**:
 | **1602A LCD + I2C Backpack** | 1 | Real-time physical display on House A (GPIO 21/22) |
 | **LM2596 Buck Converters** | 2 | Steps down 12V DC to 5V DC to power both ESP32s |
 | **AC Loads** | 2 | Bulbs / small appliance loads representing household demand |
+
+### Hardware Wiring & CT Sensor Electrical Isolation
+To protect the ESP32 microcontrollers from high AC mains voltages, the system utilizes onboard optical isolation on the PZEM-004T and external Current Transformer (CT) coils for safe, non-contact current sensing:
+
+![CT Isolation & Hardware Wiring Diagram](Images/ct_isolation_diagram_1775329000762.png)
 
 ---
 
