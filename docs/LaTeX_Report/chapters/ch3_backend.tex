@@ -1,0 +1,136 @@
+% ══════════════════════════════════════════════════
+\chapter{Backend Server --- Node.js}
+% ══════════════════════════════════════════════════
+
+\section{Server Ka Role --- Central Hub}
+
+Backend server poore system ka \textbf{central hub} hai. Koi bhi component seedha kisi dusre se baat nahi karta --- sab server ke zariye hota hai.
+
+\begin{conceptbox}[Server Kyun Zaroori Hai?]
+\begin{itemize}[nosep]
+    \item ESP32 boards apna data \textbf{server ko bhejte hain} (seedha blockchain ko nahi)
+    \item Server wo data \textbf{blockchain pe record} karta hai (Web3.js ke zariye)
+    \item Server har 5 second \textbf{AI server se prediction} mangta hai
+    \item Dashboard browser mein khulta hai aur \textbf{server se data fetch} karta hai
+    \item Server \textbf{CSV file maintain} karta hai jo AI training ke kaam aati hai
+\end{itemize}
+Matlab server ke bina kuch nahi chalta!
+\end{conceptbox}
+
+Server \textbf{Express.js} framework pe bana hai jo Node.js ka sabse popular web framework hai. Port \textbf{3000} pe chalta hai. 4 libraries use hoti hain: Express (web server), CORS (cross-origin requests), dotenv (config file), aur Web3.js (blockchain communication).
+
+\section{API Endpoints --- Server Se Baat Kaise Hoti Hai}
+
+Server ke \textbf{15 endpoints} hain. Endpoint matlab ek URL jis pe data bhej sakte ho ya mang sakte ho. In ko 3 categories mein samjho:
+
+\subsection{Core Data Endpoints (Sensor Data Ke Liye)}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Method} & \textbf{URL} & \textbf{Kya Karta Hai Aur Kyun} \\
+\midrule
+POST & \texttt{/api/live} & ESP32 har 500ms pe yahan data bhejta hai. Server isse memory mein store karta hai (dashboard ke liye) aur CSV file mein bhi likhta hai (AI training ke liye). \\
+GET & \texttt{/api/live} & Dashboard yahan se latest live readings leta hai --- voltage, current, power, relay status. \\
+POST & \texttt{/api/transaction} & Jab relay ON ho toh House A har 60s pe yahan energy transaction bhejta hai. Server isse blockchain pe record karta hai. \\
+POST & \texttt{/api/consumption} & House B har 30s pe apna consumption data yahan bhejta hai. Yeh AI training ke liye store hota hai. \\
+GET & \texttt{/api/transactions} & Dashboard yahan se saari past transactions ki list leta hai. \\
+GET & \texttt{/api/stats} & Total energy traded, average power, total value --- aggregated statistics. \\
+\bottomrule
+\end{tabularx}
+\caption{Core Data Endpoints}
+\end{table}
+
+\textbf{POST vs GET samjho:} POST matlab tum server ko data \textbf{de} rahe ho (ESP32 readings bhej raha hai). GET matlab tum server se data \textbf{mang} rahe ho (dashboard readings le raha hai).
+
+\subsection{AI/ML Proxy Endpoints}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Method} & \textbf{URL} & \textbf{Kya Karta Hai Aur Kyun} \\
+\midrule
+GET & \texttt{/api/predict} & AI prediction deta hai. Server pehle apna cache check karta hai --- agar fresh prediction available hai toh wahi de deta hai, warna Flask server se mangta hai. \\
+GET & \texttt{/api/predict/history} & Pichli predictions ki list --- chart banane ke liye. \\
+GET & \texttt{/api/ml/status} & AI server connected hai ya nahi, model loaded hai ya nahi, accuracy kitni hai. \\
+GET & \texttt{/api/anomalies} & Koi abnormal reading aayi hai ya nahi (voltage spike, negative power, etc.). \\
+\bottomrule
+\end{tabularx}
+\caption{AI Proxy Endpoints}
+\end{table}
+
+\textbf{Proxy kyun?} Dashboard seedha Flask server (port 5000) se baat kar sakta tha, lekin \textbf{proxy pattern} use kiya gaya hai --- matlab Node.js server beech mein hai. Iska faida yeh hai ke agar AI server band bhi ho toh dashboard crash nahi karta, server cached prediction de deta hai.
+
+\subsection{Blockchain \& Export Endpoints}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Method} & \textbf{URL} & \textbf{Kya Karta Hai} \\
+\midrule
+GET & \texttt{/api/blockchain/status} & Ganache connected hai? Contract ka address kya hai? Kitne transactions hain? \\
+GET & \texttt{/api/export/csv} & sensor\_log.csv file download karo (ML training ke liye) \\
+GET & \texttt{/api/export/ml} & Transactions JSON format mein (ML ke liye) \\
+\bottomrule
+\end{tabularx}
+\caption{Blockchain \& Export Endpoints}
+\end{table}
+
+\section{Data Storage --- 4 Files}
+
+Server 4 files maintain karta hai jo runtime mein automatically banti aur update hoti hain:
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{File} & \textbf{Kyun Hai Yeh} \\
+\midrule
+\texttt{transactions.json} & Blockchain transactions ka \textbf{local backup}. Agar blockchain band ho toh data yahan safe rehta hai. \\
+\texttt{consumption.json} & House B ki consumption history. Last 10,000 records rakhta hai. \\
+\texttt{sensor\_log.csv} & Yeh \textbf{sabse important file} hai --- AI model isi se seekhta hai. Har 500ms pe ek row add hoti hai jis mein dono houses ki readings hain. \\
+\texttt{predictions.json} & AI predictions ki history. Last 500 predictions cache rehti hain. \\
+\bottomrule
+\end{tabularx}
+\caption{Runtime Data Files}
+\end{table}
+
+\section{Blockchain Connection}
+
+Server start hote hi Ganache blockchain se connect hone ki koshish karta hai. Agar connect ho jaye toh Web3.js ke zariye smart contract load karta hai. Jab ESP32 se transaction aata hai toh server us contract ka function call karta hai jo transaction permanently blockchain pe likh deta hai.
+
+\begin{tipbox}[Graceful Fallback --- Yeh Smart Design Hai]
+Agar Ganache band hai toh server crash \textbf{nahi} hota --- data sirf local JSON file mein save ho jata hai. Jab blockchain wapas connect ho, naye transactions wahan record honge. System hamesha kaam karta rehta hai chahe blockchain ho ya na ho.
+\end{tipbox}
+
+\section{ML Prediction Polling}
+
+Server har \textbf{5 seconds} baad Flask AI server (port 5000) se ek prediction mangta hai. Flask server sensor\_log.csv ki latest data pe LSTM model chala ke bata hai ke aglay 1 minute mein kitni power use hogi.
+
+Server yeh prediction \textbf{cache} kar leta hai. Jab dashboard maange toh cached result de deta hai --- har baar Flask se fresh nahi mangta. Agar Flask server band hai toh silently retry karta hai, koi error nahi aata dashboard pe.
+
+\section{CSV Logging --- AI Data Collection}
+
+Yeh system ki \textbf{sabse clever cheez} hai: jab bhi koi ESP32 live data bhejta hai, server us data ko ek CSV row mein convert karke file mein likh deta hai. Yeh file AI model ki training data hai. Matlab:
+
+\begin{itemize}[nosep]
+    \item System jitna \textbf{zyada chale ga}, utna zyada data collect hoga
+    \item Zyada data $=$ AI model \textbf{zyada accurate} hoga
+    \item Koi manually data collect karne ki zaroorat nahi --- \textbf{automatically} ho raha hai
+\end{itemize}
+
+Har CSV row mein 16 columns hain: timestamp, hour, day of week, House A ki 6 readings, House B ki 4 readings, relay state, receiving status, aur solar generation.
+
+\section{Configuration}
+
+Server ko ek \texttt{.env} file chahiye jis mein yeh information ho:
+
+\begin{itemize}[nosep]
+    \item \textbf{Ganache URL} --- Blockchain kahan chal rahi hai (default: \texttt{http://127.0.0.1:7545})
+    \item \textbf{Contract Address} --- Deploy karne ke baad milta hai (deploy script automatically set karta hai)
+    \item \textbf{Private Key} --- Ganache account ka key (transactions sign karne ke liye)
+    \item \textbf{House Addresses} --- House A aur B ke Ethereum addresses
+\end{itemize}

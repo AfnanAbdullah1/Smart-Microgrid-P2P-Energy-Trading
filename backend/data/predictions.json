@@ -1,0 +1,3502 @@
+[
+  {
+    "timestamp": "2026-06-15T11:02:24.972270",
+    "predicted": 5.081,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:02:29.855763",
+    "predicted": 5.081,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:02:34.548648",
+    "predicted": 5.081,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:02:39.283910",
+    "predicted": 5.081,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:02:44.300620",
+    "predicted": 5.081,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:02:49.056039",
+    "predicted": 5.081,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:02:54.027217",
+    "predicted": 5.081,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:02:59.330188",
+    "predicted": 5.081,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:03.727516",
+    "predicted": 5.081,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:08.307679",
+    "predicted": 5.081,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:12.825457",
+    "predicted": 5.093,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:17.743166",
+    "predicted": 5.086,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:22.836509",
+    "predicted": 5.104,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:28.048550",
+    "predicted": 5.085,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:32.728597",
+    "predicted": 5.077,
+    "actual": 8.9,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:37.885171",
+    "predicted": 5.061,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:42.976905",
+    "predicted": 5.019,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:47.889850",
+    "predicted": 5.032,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:53.064269",
+    "predicted": 5.032,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:03:58.904414",
+    "predicted": 5.038,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:03.898140",
+    "predicted": 5.059,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:09.187285",
+    "predicted": 5.059,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:14.219382",
+    "predicted": 5.047,
+    "actual": 8.9,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:19.013198",
+    "predicted": 5.047,
+    "actual": 8.9,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:24.294734",
+    "predicted": 5.041,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:29.235286",
+    "predicted": 5.009,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:34.281169",
+    "predicted": 5.009,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:38.876334",
+    "predicted": 5.009,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:44.206415",
+    "predicted": 5.064,
+    "actual": 8.9,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:50.027861",
+    "predicted": 5.059,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:55.209117",
+    "predicted": 5.033,
+    "actual": 8.9,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:04:59.546732",
+    "predicted": 5.033,
+    "actual": 8.9,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:04.464365",
+    "predicted": 5.033,
+    "actual": 8.9,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:09.682530",
+    "predicted": 5.028,
+    "actual": 8.8,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:14.882981",
+    "predicted": 5.034,
+    "actual": 8.8,
+    "confidence": 0.992,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:20.104672",
+    "predicted": 5.054,
+    "actual": 8.9,
+    "confidence": 0.992,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:25.021538",
+    "predicted": 5.083,
+    "actual": 8.9,
+    "confidence": 0.992,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:29.942008",
+    "predicted": 5.034,
+    "actual": 8.7,
+    "confidence": 0.992,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:34.952730",
+    "predicted": 5.026,
+    "actual": 8.8,
+    "confidence": 0.992,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:39.761755",
+    "predicted": 5.02,
+    "actual": 8.7,
+    "confidence": 0.992,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:45.015891",
+    "predicted": 5.017,
+    "actual": 8.9,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:49.591502",
+    "predicted": 5.029,
+    "actual": 8.9,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:54.751196",
+    "predicted": 5.051,
+    "actual": 8.8,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:05:59.767058",
+    "predicted": 5.046,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:04.872633",
+    "predicted": 5.046,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:10.158711",
+    "predicted": 5.046,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:14.938560",
+    "predicted": 5.046,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:19.256408",
+    "predicted": 5.046,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:24.497601",
+    "predicted": 5.046,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:29.243845",
+    "predicted": 5.046,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:34.049075",
+    "predicted": 5.016,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:39.961101",
+    "predicted": 5.014,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:44.876442",
+    "predicted": 5.002,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:49.482132",
+    "predicted": 5.007,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:53.690735",
+    "predicted": 5.007,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:06:58.629797",
+    "predicted": 5.015,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:07:03.289568",
+    "predicted": 5.006,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:07:08.178478",
+    "predicted": 5.03,
+    "actual": 8.7,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:07:13.119994",
+    "predicted": 5.028,
+    "actual": 8.8,
+    "confidence": 0.997,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:07:19.060647",
+    "predicted": 5.028,
+    "actual": 8.8,
+    "confidence": 0.997,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:07:24.581219",
+    "predicted": 5.034,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:07:29.646268",
+    "predicted": 5.062,
+    "actual": 8.9,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:07:34.895378",
+    "predicted": 5.038,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:07:40.011125",
+    "predicted": 4.999,
+    "actual": 8.8,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:07:44.767873",
+    "predicted": 5.011,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:07:49.981447",
+    "predicted": 5.012,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:07:55.115471",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:00.070211",
+    "predicted": 5.004,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:04.949807",
+    "predicted": 5.023,
+    "actual": 8.7,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:09.659467",
+    "predicted": 5.021,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:15.207797",
+    "predicted": 5.032,
+    "actual": 8.7,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:20.166835",
+    "predicted": 5.067,
+    "actual": 8.7,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:25.218911",
+    "predicted": 5.061,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:30.038649",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:35.011220",
+    "predicted": 5.048,
+    "actual": 8.8,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:39.951179",
+    "predicted": 5.029,
+    "actual": 8.7,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:45.417408",
+    "predicted": 5.027,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:50.201230",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:54.587243",
+    "predicted": 5.039,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:08:59.466747",
+    "predicted": 5.046,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:09:04.888809",
+    "predicted": 5.04,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:09:09.810065",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:09:15.377972",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:09:19.988769",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:09:24.519521",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:09:29.881589",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:09:35.191223",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:09:40.069096",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:09:45.052256",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:09:50.173765",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:09:55.275114",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:00.462555",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:05.509979",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:10.778901",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:14.882936",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:19.443706",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:24.662167",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:29.541858",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:34.375947",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:40.110035",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:45.020642",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:50.131559",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:10:55.159969",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:00.524675",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:04.785353",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:09.612434",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:14.719407",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:19.758875",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:24.357181",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:30.210967",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:35.290851",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:39.926235",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:44.535458",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:49.375953",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:55.029415",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:11:59.903665",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:12:05.504936",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:12:10.398560",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:12:14.881641",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:12:20.290595",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:12:25.455435",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:12:29.836367",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:12:35.261654",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:12:40.084134",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:12:45.378743",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:12:50.586956",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:12:55.737807",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:01.327763",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:06.303445",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:11.054873",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:15.561028",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:20.559140",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:24.965609",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:30.056264",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:34.678459",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:40.501265",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:45.525046",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:50.738658",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:13:55.433905",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:00.517089",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:05.589188",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:10.613514",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:15.638675",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:20.213355",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:24.612911",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:30.012163",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:34.780050",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:40.607160",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:44.769392",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:50.418947",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:55.036364",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:14:59.793947",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:15:05.189870",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:15:09.986398",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:15:15.048036",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:15:20.425677",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:15:24.740662",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:15:30.784149",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:15:35.743625",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:15:40.502861",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:15:45.650177",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:15:50.434060",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:15:55.416223",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:00.959801",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:06.093640",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:10.753550",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:16.050289",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:21.060186",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:25.752157",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:31.276537",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:36.344990",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:41.587128",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:46.729615",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:51.527376",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:16:57.158979",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:01.925833",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:06.530932",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:11.562326",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:16.018833",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:20.876959",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:26.695942",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:31.898371",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:36.544774",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:41.648299",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:46.207114",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:51.353453",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:17:56.812245",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:01.800725",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:06.463536",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:11.741305",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:16.417667",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:21.329140",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:26.047756",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:30.923042",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:35.232748",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:40.126043",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:45.860710",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:50.776237",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:18:55.925479",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:00.540922",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:04.986673",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:10.336533",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:15.193342",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.996,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:20.157337",
+    "predicted": 5.031,
+    "actual": 8.8,
+    "confidence": 0.997,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:25.785269",
+    "predicted": 5.031,
+    "actual": 8.8,
+    "confidence": 0.997,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:30.386407",
+    "predicted": 5.031,
+    "actual": 8.8,
+    "confidence": 0.997,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:35.285858",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:40.433462",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:45.680027",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:50.770082",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:19:55.747825",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:00.416122",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:05.220804",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:10.252611",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:15.399174",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:20.572078",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:25.820129",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:30.991697",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:35.677732",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:40.413763",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:45.339955",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:50.294262",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:20:55.276791",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:00.393453",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:05.453761",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:10.447996",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:15.188256",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:20.490316",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:25.219441",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:30.445020",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:35.127174",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:40.355639",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:46.059143",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:50.522996",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:55.650582",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:21:59.530026",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:22:03.957214",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:22:10.470348",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:22:15.188763",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:22:19.927413",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:22:25.856540",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:22:30.333054",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:22:35.226690",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:22:40.303851",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:22:45.490356",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:22:50.261799",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:22:54.887449",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:00.629072",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:05.132847",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:09.990038",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:15.632591",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:20.867778",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:25.420164",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:30.128501",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:35.116853",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:39.978265",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:45.420482",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:49.663333",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:54.392720",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:23:59.956285",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:04.644626",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:09.813598",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:14.816047",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:20.432629",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:25.195331",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:30.434040",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:34.996738",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:39.835011",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:45.475382",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:50.103603",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:54.831267",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:24:59.668551",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:25:03.875805",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:25:09.710549",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:25:14.498559",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:25:19.689855",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:25:24.811787",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:25:30.030353",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:25:34.845935",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:25:39.856547",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:25:44.935198",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:25:50.239439",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:25:55.899252",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:00.276818",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:05.621606",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:10.210170",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:14.964982",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:20.113794",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:24.939113",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:30.197969",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:34.838696",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:39.778036",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:45.186144",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:49.864234",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:55.082552",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:26:59.964880",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:05.148477",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:10.199955",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:14.856332",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:19.479592",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:24.409923",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:29.415681",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:34.399724",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:39.870088",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:45.070425",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:50.407270",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:55.071515",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:27:59.940226",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:28:05.378205",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:28:09.412155",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:28:14.564006",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:28:18.970360",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:28:23.817074",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:28:29.857714",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:28:35.319681",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:28:40.964380",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:28:45.555695",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:28:50.679333",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:28:55.414870",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:00.292038",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:05.256322",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:10.125807",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:15.226812",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:20.231412",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:25.007920",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:30.121081",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:35.271272",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:40.745631",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:45.577447",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:50.998301",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:29:55.722434",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:00.522779",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:05.327796",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:10.512613",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:15.252424",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:20.103805",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:25.412049",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:30.285851",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:35.774856",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:40.842651",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:45.224275",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:49.802494",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:55.059986",
+    "predicted": 5.036,
+    "actual": 8.8,
+    "confidence": 0.998,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:30:59.766156",
+    "predicted": 5.042,
+    "actual": 9,
+    "confidence": 0.99,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:31:05.372084",
+    "predicted": 5.029,
+    "actual": 9,
+    "confidence": 0.989,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:31:11.070244",
+    "predicted": 5.023,
+    "actual": 9,
+    "confidence": 0.987,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:31:15.653335",
+    "predicted": 5.042,
+    "actual": 9.1,
+    "confidence": 0.987,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:31:20.575116",
+    "predicted": 5.073,
+    "actual": 9,
+    "confidence": 0.987,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:31:25.246897",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:31:30.430275",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:31:35.205633",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:31:40.696570",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:31:45.616263",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:31:50.953455",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:31:55.476935",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:00.843793",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:06.032621",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:11.258138",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:15.988010",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:20.687790",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:25.819998",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:30.914251",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:36.047389",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:41.314248",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:46.239017",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:50.881837",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:32:55.500772",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:00.238856",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:05.426581",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:10.399402",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:15.494066",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:20.277256",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:25.991558",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:30.255607",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:35.593472",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:39.900619",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:44.502936",
+    "predicted": 5.05,
+    "actual": 9.1,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:49.114156",
+    "predicted": 5.052,
+    "actual": 8.9,
+    "confidence": 0.988,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:54.275225",
+    "predicted": 5.059,
+    "actual": 8.9,
+    "confidence": 0.99,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:33:59.044594",
+    "predicted": 5.063,
+    "actual": 8.9,
+    "confidence": 0.993,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:04.336959",
+    "predicted": 5.073,
+    "actual": 8.8,
+    "confidence": 0.99,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:09.191227",
+    "predicted": 5.03,
+    "actual": 8.9,
+    "confidence": 0.991,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:14.209342",
+    "predicted": 5.049,
+    "actual": 9,
+    "confidence": 0.991,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:19.096933",
+    "predicted": 5.05,
+    "actual": 8.9,
+    "confidence": 0.991,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:24.148039",
+    "predicted": 5.046,
+    "actual": 8.8,
+    "confidence": 0.992,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:29.007850",
+    "predicted": 5.049,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:34.164197",
+    "predicted": 5.043,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:39.151917",
+    "predicted": 5.025,
+    "actual": 8.8,
+    "confidence": 0.995,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:43.977125",
+    "predicted": 5.028,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:48.863349",
+    "predicted": 5.093,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:53.930066",
+    "predicted": 5.049,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:34:59.243181",
+    "predicted": 5.02,
+    "actual": 8.8,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:35:04.363079",
+    "predicted": 5.052,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:35:09.657104",
+    "predicted": 5.052,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:35:14.827777",
+    "predicted": 5.052,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:35:20.818184",
+    "predicted": 5.052,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:35:25.490452",
+    "predicted": 5.052,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:35:30.208267",
+    "predicted": 5.052,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:35:35.668827",
+    "predicted": 5.052,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:35:40.091616",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:35:46.184321",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:35:50.433421",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:35:54.917221",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:04.442722",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:10.663704",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:16.537034",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:22.112721",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:28.050582",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:33.698833",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:38.228608",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:42.265077",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:46.125068",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:50.427618",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:55.088800",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:36:59.977035",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:04.974721",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:10.373801",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:16.343766",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:21.750756",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:26.448842",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:30.978553",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:35.540340",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:40.125404",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:44.832706",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:49.706047",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:55.024707",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:37:59.528568",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:03.958301",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:08.882822",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:15.888436",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:20.546997",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:24.907229",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:29.785903",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:34.801228",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:39.784622",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:44.310990",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:49.413553",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:53.650984",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:38:57.389406",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:02.055744",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:07.145616",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:12.856527",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:17.662366",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:22.613555",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:26.982108",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:31.948642",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:36.411710",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:41.732722",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:46.343514",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:51.293392",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:39:55.744519",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:00.695287",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:05.296435",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:11.257958",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:15.874168",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:20.736639",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:25.841596",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:31.336136",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:35.672968",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:40.343710",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:45.320163",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:50.866479",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:40:56.313796",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:01.426625",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:06.480093",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:13.262290",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:17.793323",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:23.045902",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:27.901476",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:32.987897",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:37.711093",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:42.273316",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:47.507952",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:51.777584",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:41:55.682538",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:00.237301",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:04.543997",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:10.059633",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:14.702091",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:19.667680",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:24.582944",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:29.543352",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:35.101562",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:42.766536",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:45.648027",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:49.900107",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:54.606730",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:42:59.760704",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:43:04.762615",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:43:10.204500",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:43:14.776201",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:43:20.371713",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:43:24.899786",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:43:29.802985",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:43:34.753020",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:43:39.889214",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T11:43:46.093573",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T12:00:21.089986",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T12:00:32.434059",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  },
+  {
+    "timestamp": "2026-06-15T12:00:35.020784",
+    "predicted": 5.037,
+    "actual": 8.9,
+    "confidence": 0.994,
+    "relay_prediction": "OFF"
+  }
+]

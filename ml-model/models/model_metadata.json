@@ -1,0 +1,44 @@
+{
+  "model_version": "3.0",
+  "model_file": "best_model.keras",
+  "scaler_file": "scaler.pkl",
+  "target_column": "houseA_power",
+  "feature_columns": [
+    "houseA_voltage",
+    "houseA_current",
+    "houseA_power",
+    "houseA_frequency",
+    "houseA_pf",
+    "houseB_power",
+    "houseB_current",
+    "relay_state",
+    "receiving_from_A",
+    "hour",
+    "day_of_week"
+  ],
+  "sequence_length": 20,
+  "horizons": {
+    "1min": 120,
+    "5min": 600,
+    "10min": 1200
+  },
+  "primary_horizon": "1min",
+  "training_metrics": {
+    "mae_watts": 0.3818,
+    "rmse_watts": 0.5464,
+    "mape_percent": 14.69
+  },
+  "data_info": {
+    "total_rows": 823838,
+    "features": 11,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15
+  },
+  "training_date": "2026-05-10T18:16:02.577906",
+  "lstm_units": [
+    128,
+    64
+  ],
+  "batch_size": 128,
+  "smooth_window": 5
+}

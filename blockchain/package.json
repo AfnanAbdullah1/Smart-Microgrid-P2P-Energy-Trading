@@ -1,0 +1,30 @@
+{
+  "name": "smart-microgrid-blockchain",
+  "version": "1.0.0",
+  "description": "Blockchain layer for Smart Microgrid P2P Energy Trading System",
+  "main": "hardhat.config.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "deploy:ganache": "npx hardhat run scripts/deploy.js --network ganache",
+    "deploy:localhost": "npx hardhat run scripts/deploy.js --network localhost",
+    "node": "npx hardhat node",
+    "console": "npx hardhat console --network ganache",
+    "clean": "npx hardhat clean"
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "solidity",
+    "smart-contract",
+    "energy-trading",
+    "p2p",
+    "microgrid"
+  ],
+  "author": "Smart Microgrid Project",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.0"
+  }
+}

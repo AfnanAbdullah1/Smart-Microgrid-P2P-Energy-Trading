@@ -1,0 +1,7 @@
+{
+  "network": "ganache",
+  "contractAddress": "0x5f3541DD8401b2A0e1B3Af64a582bf3894d67ADb",
+  "deployerAddress": "0xb019b32d9e2F06aE60f7861E2AD1a3a3A3f45Ce1",
+  "deployedAt": "2026-02-05T19:00:14.367Z",
+  "blockNumber": 1
+}

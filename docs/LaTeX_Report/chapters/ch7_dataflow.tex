@@ -1,0 +1,135 @@
+% ══════════════════════════════════════════════════
+\chapter{Complete Data Flow}
+% ══════════════════════════════════════════════════
+
+\section{End-to-End --- Poora System Kaise Chalta Hai}
+
+Ab sab layers samajh aaye hain, toh dekhte hain ke \textbf{sab milke kaise kaam karte hain} --- shuru se aakhir tak:
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    flowstep/.style={draw, rounded corners, minimum width=12cm, minimum height=0.85cm, align=center, font=\small},
+    arrow/.style={-{Stealth[length=2.5mm]}, thick, primaryblue},
+    note/.style={font=\scriptsize\itshape, text=codegray}
+]
+
+\node[flowstep, fill=warncolor!15] (s1) {\textbf{Step 1:} PZEM sensor House A ki bijli padhta hai (voltage, current, power)};
+\node[flowstep, fill=warncolor!15, below=0.4cm of s1] (s2) {\textbf{Step 2:} Agar power $\leq 1W$ $\rightarrow$ Relay ON $\rightarrow$ bijli House B ko flow hoti hai};
+\node[flowstep, fill=primaryblue!10, below=0.4cm of s2] (s3) {\textbf{Step 3:} ESP32 har 500ms server ko live data bhejta hai};
+\node[flowstep, fill=primaryblue!10, below=0.4cm of s3] (s4) {\textbf{Step 4:} Server data store karta hai + CSV mein row add karta hai};
+\node[flowstep, fill=codepurple!10, below=0.4cm of s4] (s5) {\textbf{Step 5:} Har 60s $\rightarrow$ Transaction blockchain pe permanently record hota hai};
+\node[flowstep, fill=accent!10, below=0.4cm of s5] (s6) {\textbf{Step 6:} Server har 5s Flask AI server se prediction mangta hai};
+\node[flowstep, fill=accent!10, below=0.4cm of s6] (s7) {\textbf{Step 7:} LSTM model CSV ki last 20 rows dekh ke predict karta hai};
+\node[flowstep, fill=red!8, below=0.4cm of s7] (s8) {\textbf{Step 8:} Dashboard sab kuch fetch karke real-time dikhata hai};
+
+\draw[arrow] (s1) -- (s2);
+\draw[arrow] (s2) -- (s3);
+\draw[arrow] (s3) -- (s4);
+\draw[arrow] (s4) -- (s5);
+\draw[arrow] (s5) -- (s6);
+\draw[arrow] (s6) -- (s7);
+\draw[arrow] (s7) -- (s8);
+
+\node[note, right=0.2cm of s3] {HTTP POST};
+\node[note, right=0.2cm of s5] {Web3.js $\rightarrow$ Ganache};
+\node[note, right=0.2cm of s7] {LSTM predict()};
+
+\end{tikzpicture}
+\caption{Complete Data Flow --- Step by Step}
+\end{figure}
+
+\section{House B Ka Parallel Flow}
+
+House B \textbf{simultaneously} (saath saath) apna data bhejta hai:
+
+\begin{enumerate}[nosep]
+    \item PZEM sensor se voltage padhta hai --- agar $> 100V$ toh samajh jata hai ke relay ON hai
+    \item Har \textbf{500ms} server ko live data bhejta hai (voltage, current, power, receiving status)
+    \item Har \textbf{30 seconds} detailed consumption record bhejta hai
+\end{enumerate}
+
+Matlab dono ESP32 boards \textbf{independently kaam karte hain} --- ek dusre se directly baat nahi karte. Sab communication server ke zariye hoti hai.
+
+\section{Data Ka Safar --- Raw Sensor Se Dashboard Tak}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    box/.style={draw, rounded corners, minimum width=3.5cm, minimum height=1.2cm, align=center, font=\small},
+    arrow/.style={-{Stealth[length=2.5mm]}, thick}
+]
+\node[box, fill=warncolor!15] (pzem) {PZEM Sensor\\(raw analog\\readings)};
+\node[box, fill=primaryblue!10, right=0.8cm of pzem] (esp) {ESP32\\(JSON format\\mein convert)};
+\node[box, fill=primaryblue!10, right=0.8cm of esp] (srv) {Node.js Server\\(CSV + JSON\\mein store)};
+\node[box, fill=accent!10, right=0.8cm of srv] (ml) {LSTM Model\\(normalized\\input)};
+
+\draw[arrow] (pzem) -- node[above, font=\scriptsize] {Serial} (esp);
+\draw[arrow] (esp) -- node[above, font=\scriptsize] {HTTP} (srv);
+\draw[arrow] (srv) -- node[above, font=\scriptsize] {CSV} (ml);
+
+\node[box, fill=codepurple!10, below=1cm of srv] (bc) {Blockchain\\(immutable\\record)};
+\node[box, fill=red!8, below=1cm of ml] (dash) {Dashboard\\(visual\\display)};
+
+\draw[arrow] (srv) -- node[left, font=\scriptsize] {Web3} (bc);
+\draw[arrow] (ml) -- node[right, font=\scriptsize] {JSON} (dash);
+\draw[arrow] (srv) |- (dash);
+
+\end{tikzpicture}
+\caption{Data Transformation Chain}
+\end{figure}
+
+Har step pe data ka format badalta hai:
+\begin{itemize}[nosep]
+    \item \textbf{PZEM $\rightarrow$ ESP32:} Analog electrical signals $\rightarrow$ digital numbers (Serial protocol)
+    \item \textbf{ESP32 $\rightarrow$ Server:} Numbers $\rightarrow$ JSON format mein pack karke HTTP se bhejta hai
+    \item \textbf{Server $\rightarrow$ CSV:} JSON $\rightarrow$ comma-separated values (AI training ke liye)
+    \item \textbf{Server $\rightarrow$ Blockchain:} JSON $\rightarrow$ Solidity function call (Web3.js ke zariye)
+    \item \textbf{AI $\rightarrow$ Dashboard:} Normalized prediction $\rightarrow$ real Watts mein convert $\rightarrow$ JSON response
+\end{itemize}
+
+\section{Technologies Summary}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Layer} & \textbf{Technology} & \textbf{Kyun Choose Kiya} \\
+\midrule
+Microcontroller & ESP32 & WiFi built-in hai, Arduino compatible, sasta hai \\
+Power Sensor & PZEM-004T v3.0 & AC power accurately measure karta hai, serial interface easy hai \\
+LCD & 1602A + I2C & Simple, sasta, I2C se sirf 2 wires chahiyen \\
+Backend & Node.js + Express & JavaScript based, async operations mein fast, npm ecosystem \\
+Blockchain & Solidity + Ganache & Ethereum standard, free local testing, strong tooling \\
+Web3 & Web3.js v4.3 & Official Ethereum JS library \\
+AI Model & TensorFlow/Keras & Industry standard, LSTM support, easy API \\
+AI Server & Flask & Lightweight Python web server, ML ke saath integrate easy \\
+Dashboard & Vanilla HTML/CSS/JS & No build step, instant deploy, zero dependencies \\
+Tunneling & Ngrok & Free, instant public URL, HTTPS support \\
+\bottomrule
+\end{tabularx}
+\caption{Technology Stack Aur Reasons}
+\end{table}
+
+\section{Code Size Summary}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l r r l}
+\toprule
+\textbf{File} & \textbf{Lines} & \textbf{Size} & \textbf{Language} \\
+\midrule
+House A Firmware & 636 & 21.8 KB & C++ (Arduino) \\
+House B Firmware & 393 & 11.5 KB & C++ (Arduino) \\
+Backend Server & 811 & 24.7 KB & JavaScript \\
+Dashboard & 1,095 & 46.6 KB & HTML/CSS/JS \\
+Smart Contract & 278 & 8.9 KB & Solidity \\
+Deploy Script & 134 & 4.9 KB & JavaScript \\
+ML Trainer & 429 & 14.6 KB & Python \\
+Prediction Server & 439 & 13.2 KB & Python \\
+\midrule
+\textbf{Total} & \textbf{$\sim$6,000} & \textbf{$\sim$160 KB} & \textbf{5 languages} \\
+\bottomrule
+\end{tabular}
+\caption{Complete Codebase Size}
+\end{table}

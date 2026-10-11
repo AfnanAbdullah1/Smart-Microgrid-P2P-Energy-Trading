@@ -1,0 +1,135 @@
+\documentclass[12pt,a4paper]{report}
+
+% ── Packages ──
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in, headheight=14pt]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit}
+
+% ── Colors ──
+\definecolor{primaryblue}{HTML}{2563EB}
+\definecolor{darkbg}{HTML}{1E293B}
+\definecolor{codebg}{HTML}{F1F5F9}
+\definecolor{accent}{HTML}{10B981}
+\definecolor{warncolor}{HTML}{F59E0B}
+\definecolor{codegreen}{HTML}{16A34A}
+\definecolor{codegray}{HTML}{64748B}
+\definecolor{codepurple}{HTML}{7C3AED}
+
+% ── Hyperlinks ──
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primaryblue,
+    urlcolor=primaryblue,
+    citecolor=primaryblue
+}
+
+% ── Code Listings ──
+\lstset{
+    backgroundcolor=\color{codebg},
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{primaryblue}\bfseries,
+    stringstyle=\color{codegreen},
+    commentstyle=\color{codegray}\itshape,
+    numberstyle=\tiny\color{codegray},
+    numbers=left,
+    numbersep=8pt,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{codegray!30},
+    tabsize=2,
+    showstringspaces=false,
+    captionpos=b
+}
+
+% ── Info Boxes ──
+\newtcolorbox{conceptbox}[1][]{
+    colback=primaryblue!5, colframe=primaryblue!70,
+    fonttitle=\bfseries, title=#1, rounded corners
+}
+\newtcolorbox{warnbox}[1][]{
+    colback=warncolor!8, colframe=warncolor!70,
+    fonttitle=\bfseries, title=#1, rounded corners
+}
+\newtcolorbox{tipbox}[1][]{
+    colback=accent!8, colframe=accent!70,
+    fonttitle=\bfseries, title=#1, rounded corners
+}
+
+% ── Headers ──
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{codegray}{P2P Energy Trading System}}
+\fancyhead[R]{\small\textcolor{codegray}{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Title Formatting ──
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{darkbg}}{Chapter \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries\color{primaryblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{darkbg}}{\thesubsection}{1em}{}
+
+% ══════════════════════════════════════════════════
+\begin{document}
+
+% ── Title Page ──
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\Huge\bfseries\color{darkbg} Blockchain-Based\\[0.3cm]
+Peer-to-Peer Energy\\[0.3cm]
+Trading System\par}
+\vspace{1cm}
+{\LARGE\color{primaryblue} Complete Project Learning Guide\par}
+\vspace{0.5cm}
+{\large\color{codegray} With AI Load Prediction \& IoT Integration\par}
+\vspace{2cm}
+
+\begin{tikzpicture}
+\node[draw=primaryblue, line width=2pt, rounded corners=15pt,
+      inner sep=20pt, fill=primaryblue!5] {
+    \begin{minipage}{0.6\textwidth}\centering
+    \Large\bfseries
+    Final Year Project\\[0.3cm]
+    \normalsize\normalfont
+    BS Electrical Engineering\\[0.2cm]
+    Department of Electrical Engineering
+    \end{minipage}
+};
+\end{tikzpicture}
+
+\vfill
+{\large\today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ══════════════════════════════════════════════════
+\input{chapters/ch1_overview}
+\input{chapters/ch2_hardware}
+\input{chapters/ch3_backend}
+\input{chapters/ch4_blockchain}
+\input{chapters/ch5_ai_ml}
+\input{chapters/ch6_dashboard}
+\input{chapters/ch7_dataflow}
+\input{chapters/ch8_startup}
+
+\end{document}

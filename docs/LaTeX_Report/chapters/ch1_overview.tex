@@ -1,0 +1,67 @@
+% ══════════════════════════════════════════════════
+\chapter{Project Ka Overview}
+% ══════════════════════════════════════════════════
+
+\section{Yeh Project Kya Hai?}
+
+Yeh project \textbf{do gharon ke darmiyan bijli ka lein-dein (Peer-to-Peer Energy Trading)} karta hai. Is mein koi bechne wala company (jaise WAPDA/K-Electric) beech mein nahi hai --- seedha ghar se ghar bijli transfer hoti hai.
+
+\begin{conceptbox}[Core Concept]
+\textbf{House A} = Solar panel wala ghar (Producer) --- yeh bijli banata hai\\
+\textbf{House B} = Consumer ghar --- yeh bijli leta hai\\[0.3cm]
+Jab House A ki apni consumption kam ho ($\leq 1W$), toh \textbf{relay ON} ho jata hai aur extra bijli House B ko chali jati hai. Yeh sara record \textbf{blockchain} par permanently save hota hai, aur \textbf{AI model} agay ki consumption predict karta hai.
+\end{conceptbox}
+
+Iska matlab yeh hai ke agar House A mein koi appliance nahi chal raha (bijli ki zaroorat nahi), toh jo solar bijli ban rahi hai wo waste hone ke bajaye House B ko de di jati hai. Aur yeh sab kuch automatically hota hai --- kisi ko manually kuch karne ki zaroorat nahi.
+
+\section{System Ke 5 Layers}
+
+Poora system 5 alag-alag layers mein divide hai. Har layer ka apna kaam hai aur sab milke ek complete system banate hain:
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{c l X}
+\toprule
+\textbf{\#} & \textbf{Layer} & \textbf{Kya Karta Hai} \\
+\midrule
+1 & Hardware (ESP32) & Bijli measure karta hai, relay control karta hai \\
+2 & Backend (Node.js) & Sab data receive karta hai, APIs provide karta hai \\
+3 & Blockchain (Solidity) & Transactions permanently record karta hai \\
+4 & AI/ML (Python LSTM) & Agay ki consumption predict karta hai \\
+5 & Dashboard (HTML/JS) & Browser mein sab kuch dikhata hai \\
+\bottomrule
+\end{tabularx}
+\caption{System ke 5 Layers}
+\end{table}
+
+\textbf{Kyun 5 layers?} Kyunke har kaam alag hai. Sensor padhna alag kaam hai, data store karna alag, blockchain pe record karna alag, predict karna alag, aur dikhana alag. In sab ko ek mein mix karna galat approach hoti --- isliye modular design use ki hai.
+
+\section{System Architecture}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    layer/.style={draw, rounded corners, minimum width=13cm, minimum height=1.4cm, align=center, font=\small},
+    arrow/.style={-{Stealth[length=3mm]}, thick, primaryblue}
+]
+\node[layer, fill=warncolor!15, draw=warncolor] (hw) {\textbf{Layer 1: Hardware} --- ESP32 + PZEM-004T Sensors + Relay + LCD\\House A (Producer) \quad $\longleftrightarrow$ \quad House B (Consumer)};
+
+\node[layer, fill=primaryblue!10, draw=primaryblue, below=of hw] (be) {\textbf{Layer 2: Backend Server} --- Node.js + Express (Port 3000)\\15 API Endpoints --- Data Storage --- ML Proxy --- Web3.js Bridge};
+
+\node[layer, fill=codepurple!10, draw=codepurple, below=of be] (bc) {\textbf{Layer 3: Blockchain} --- Ganache + Hardhat + Solidity 0.8.20\\EnergyTrading Smart Contract --- Immutable Transaction Ledger};
+
+\node[layer, fill=accent!10, draw=accent, below=of bc] (ml) {\textbf{Layer 4: AI/ML Engine} --- Flask API (Port 5000)\\BiLSTM Neural Network --- Anomaly Detection --- Load Prediction};
+
+\node[layer, fill=red!8, draw=red!60, below=of ml] (ui) {\textbf{Layer 5: Dashboard} --- Single-Page HTML + CSS + Canvas\\Live Monitoring --- AI Predictions --- Blockchain Stats};
+
+\draw[arrow] (hw) -- node[right, font=\scriptsize] {HTTP POST every 500ms} (be);
+\draw[arrow] (be) -- node[right, font=\scriptsize] {Web3.js calls} (bc);
+\draw[arrow] (be) -- node[right, font=\scriptsize] {Polls every 5s} (ml);
+\draw[arrow] (ui) -- node[right, font=\scriptsize] {Fetch API calls} (be);
+
+\end{tikzpicture}
+\caption{5-Layer System Architecture}
+\end{figure}
+
+\textbf{Is diagram mein samjhne ki cheez yeh hai:} Sab kuch \textbf{backend server} se guzarta hai. ESP32 boards seedha blockchain se baat nahi karte --- wo apna data server ko bhejte hain, server usse blockchain pe record karta hai. Dashboard bhi seedha ESP32 se baat nahi karta --- wo bhi server se data leta hai. Server poore system ka \textbf{central hub} hai.

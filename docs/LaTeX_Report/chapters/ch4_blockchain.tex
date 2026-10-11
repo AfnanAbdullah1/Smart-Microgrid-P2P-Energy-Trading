@@ -1,0 +1,146 @@
+% ══════════════════════════════════════════════════
+\chapter{Blockchain Layer --- Smart Contract}
+% ══════════════════════════════════════════════════
+
+\section{Blockchain Kya Hai? --- Simple Tareeqay Se Samjho}
+
+\begin{conceptbox}[Blockchain = Permanent Record Book]
+Socho ek register hai jis mein entry karne ke baad \textbf{kabhi mita nahi sakte, edit nahi kar sakte}. Har nayi entry ek ``block'' mein likhti hai, aur blocks ek chain ki tarah jud jaate hain --- isliye ``Blockchain''.
+
+Is project mein hum Blockchain isliye use karte hain ke energy trading ka record \textbf{tamper-proof} ho. Koi yeh nahi keh sakta ke ``maine itni bijli nahi li thi'' --- record permanent hai.
+\end{conceptbox}
+
+\section{Tools Kya Use Hue Hain?}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Tool} & \textbf{Kya Hai Aur Kyun Use Kiya} \\
+\midrule
+\textbf{Ganache} & Yeh ek \textbf{fake Ethereum blockchain} hai jo tumhare PC pe chalta hai. Real Ethereum pe deploy karna mehnga hai (gas fees lagti hain), isliye development ke liye Ganache use karte hain. Port 7545 pe chalta hai. \\
+\textbf{Hardhat} & Yeh Solidity code ko compile karta hai aur blockchain pe deploy karta hai. Matlab yeh toh bas ek tool hai --- developer ka helper. \\
+\textbf{Solidity 0.8.20} & Yeh wo programming language hai jis mein smart contract likha gaya hai. Solidity sirf Ethereum blockchain ke liye hai. \\
+\textbf{Web3.js v4.3} & Yeh JavaScript library hai jo Node.js server ko blockchain se baat karne deti hai --- contract ke functions call karna, transactions bhejne ke liye. \\
+\bottomrule
+\end{tabularx}
+\caption{Blockchain Tools Aur Unka Purpose}
+\end{table}
+
+\section{Smart Contract Kya Hai?}
+
+Smart contract ek \textbf{program hai jo blockchain pe rehta hai}. Ek baar deploy karne ke baad isse koi change nahi kar sakta. Is project ka contract \textbf{EnergyTrading.sol} hai jo energy transactions record karta hai.
+
+\begin{tipbox}[Real Life Analogy]
+Smart contract ko aise samjho: ek vending machine. Tum paisa dalte ho, machine automatically samaan deti hai. Koi beech mein cheat nahi kar sakta. Smart contract bhi aise hi hai --- rules pehle se set hain, automatically execute hote hain.
+\end{tipbox}
+
+\section{Contract Mein Kya Data Store Hota Hai?}
+
+Contract 2 tarah ka data rakhta hai:
+
+\subsection{Transaction Record}
+
+Har baar jab bijli transfer hoti hai, yeh information permanently save hoti hai:
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Field} & \textbf{Kya Hai} \\
+\midrule
+Transaction ID & Unique number (1, 2, 3, ...) \\
+Seller Address & House A ka Ethereum address (0x1111...1111) \\
+Buyer Address & House B ka Ethereum address (0x2222...2222) \\
+Power (Watts) & Us waqt kitni watts transfer ho rahi thi \\
+Energy (Wh) & Total kitni energy transfer hui (Watt-hours) \\
+Price per kWh & Rate: 0.0001 ETH per kWh (roughly \$0.10) \\
+Total Cost & Total paisa (Wei mein --- Ethereum ki sabse chhoti unit) \\
+Timestamp & Kab hui yeh transaction \\
+Solar Production & House A ki solar reading \\
+House A Consumption & House A kitna use kar raha tha \\
+\bottomrule
+\end{tabularx}
+\caption{Transaction Record Fields}
+\end{table}
+
+\subsection{House Information}
+
+Har registered house ki information:
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Field} & \textbf{Kya Hai} \\
+\midrule
+Name & ``House\_A'' ya ``House\_B'' \\
+Wallet Address & Ethereum address \\
+Is Seller? & Haan (producer) ya Nahi (consumer) \\
+Total Energy Traded & Ab tak kitni total energy trade ki \\
+Transaction Count & Kitni transactions ki hain \\
+\bottomrule
+\end{tabularx}
+\caption{House Information Fields}
+\end{table}
+
+\section{Contract Ke Main Functions}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Function} & \textbf{Kya Karta Hai Aur Kyun} \\
+\midrule
+\texttt{recordTransaction()} & Naya energy trade record karta hai. Server yeh call karta hai jab ESP32 se transaction aata hai. Yeh permanently blockchain pe likh deta hai. \\
+\texttt{getTransaction(id)} & Kisi purani transaction ko ID se dhundho. Dashboard isse dikhata hai. \\
+\texttt{getLatestTransaction()} & Sabse haal ki transaction dekho. \\
+\texttt{getTransactionCount()} & Total kitni transactions hain --- dashboard pe count dikhane ke liye. \\
+\texttt{getStatistics()} & Total energy, total value, average power --- ek hi call mein sab stats mil jayen. \\
+\texttt{getHouseInfo(address)} & Kisi house ki info dekho --- naam, role, total energy, TX count. \\
+\texttt{setPricePerKwh()} & Bijli ki rate change karo. Sirf contract ka owner kar sakta hai. \\
+\bottomrule
+\end{tabularx}
+\caption{Smart Contract Functions}
+\end{table}
+
+\section{Pricing --- Bijli Ka Rate Kaise Calculate Hota Hai?}
+
+\begin{align*}
+\text{Price per kWh} &= 0.0001 \text{ ETH} \approx \$0.10 \\
+\text{Total Cost} &= \frac{\text{energyWh} \times \text{pricePerKwh}}{1000}
+\end{align*}
+
+\begin{tipbox}[Example]
+Agar 10Wh energy transfer hui toh:\\
+$\text{Cost} = \frac{10 \times 0.0001}{1000} = 0.000001 \text{ ETH}$\\[0.2cm]
+Ganache pe yeh free hai (fake ETH hai), lekin real Ethereum pe yeh actual paisa hota.
+\end{tipbox}
+
+\section{Events --- Blockchain Notifications}
+
+Contract 3 events emit karta hai. Event matlab ek notification jo blockchain pe permanently log hoti hai:
+
+\begin{enumerate}[nosep]
+    \item \textbf{HouseRegistered} --- Jab naya ghar register ho (constructor mein automatically hota hai)
+    \item \textbf{EnergyTransferred} --- Jab bijli transfer ho (transaction ID, seller, buyer, power, energy, time)
+    \item \textbf{TransactionRecorded} --- Block hash aur block number ke saath (verification ke liye)
+\end{enumerate}
+
+\textbf{Events kyun important hain?} Kyunke agar koi external application (jaise mobile app) blockchain monitor karna chahe toh events listen kar sakta hai --- real-time notifications milte hain.
+
+\section{Deployment --- Contract Kaise Deploy Hota Hai?}
+
+Ek deployment script hai jo 5 kaam karta hai:
+
+\begin{enumerate}
+    \item Solidity code ko \textbf{compile} karta hai (bytecode banata hai)
+    \item Ganache pe \textbf{deploy} karta hai (bytecode blockchain pe upload hota hai)
+    \item Contract address \textbf{save} karta hai ek JSON file mein
+    \item Contract ka ABI (interface definition) \textbf{backend folder mein copy} karta hai --- taake server contract se baat kar sake
+    \item Backend ki \texttt{.env} file mein contract address \textbf{automatically update} karta hai
+\end{enumerate}
+
+\begin{warnbox}[Ganache Reset = Re-deploy]
+Har baar Ganache restart karne pe purani chain \textbf{mit jati hai}. Toh contract dubara deploy karna padta hai. Yeh sirf development mein hota hai --- real blockchain mein contract permanent hota hai.
+\end{warnbox}

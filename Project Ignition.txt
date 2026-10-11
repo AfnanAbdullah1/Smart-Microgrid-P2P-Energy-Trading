@@ -1,0 +1,46 @@
+
+
+
+
+
+Wifi must be same on everyDevice 
+SSID: GoogleTalk
+Password: abid@1947dnp
+
+=====================================================================================
+
+Open Ganache: with my personal workspace
+
+=====================================================================================
+
+Power On Houses.
+
+=====================================================================================
+
+
+--- Terminal 1: AI Prediction Server (port 5000) ---
+cd "D:\Academic\Paid_Projects_Clients\Ruman Appi - Project _ P2P Current transfering\ml-model"
+python predict_server.py
+
+
+=====================================================================================
+
+--- Terminal 2: Backend Server (port 3000) ---
+cd "D:\Academic\Paid_Projects_Clients\Ruman Appi - Project _ P2P Current transfering\backend"
+npm start
+
+
+=====================================================================================
+
+Open nGrok:
+
+cd "D:\Academic\Paid_Projects_Clients\Ruman Appi - Project _ P2P Current transfering"
+ngrok http 3000
+
+=====================================================================================
+
+--- Dashboard ---
+Open: http://localhost:3000
+
+
+

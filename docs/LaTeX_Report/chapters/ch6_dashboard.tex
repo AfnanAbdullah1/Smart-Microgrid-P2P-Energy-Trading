@@ -1,0 +1,90 @@
+% ══════════════════════════════════════════════════
+\chapter{Dashboard --- Web Interface}
+% ══════════════════════════════════════════════════
+
+\section{Dashboard Ka Overview}
+
+Dashboard ek \textbf{single HTML page} hai jo browser mein khulta hai (\texttt{http://localhost:3000}). Yeh poore system ka visual interface hai --- sab kuch yahan dikhta hai.
+
+\begin{conceptbox}[Dashboard Kyun Zaroori Hai?]
+Bina dashboard ke tumhe terminal/console dekhna padta. Dashboard se ek nazar mein pata chal jata hai:
+\begin{itemize}[nosep]
+    \item Dono houses kitni bijli use kar rahe hain
+    \item Relay ON hai ya OFF
+    \item AI kya predict kar raha hai
+    \item Blockchain pe kitni transactions hui hain
+    \item Koi anomaly toh nahi aayi
+\end{itemize}
+\end{conceptbox}
+
+\section{Design Choices --- Kyun Aise Banaya}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Choice} & \textbf{Kyun} \\
+\midrule
+\textbf{Dark Theme} & Energy monitoring systems typically dark hote hain (jaise control rooms). Readings zyada clearly dikhti hain dark background pe. \\
+\textbf{Single HTML File} & Setup simple rakhne ke liye. Koi build process nahi, koi framework nahi --- sirf ek file hai, server ke saath serve hoti hai. \\
+\textbf{No External JS Libraries} & Chart.js ya React use karne se 200KB+ extra load hota. Hamara custom Canvas chart sirf 100 lines mein hai aur perfectly kaam karta hai. Zero dependencies = zero problems. \\
+\textbf{Inter Font} & Professional aur modern dikhta hai. Google Fonts se load hota hai. \\
+\textbf{Responsive Layout} & Mobile pe bhi properly dikhta hai (1-column layout), desktop pe multi-column. \\
+\bottomrule
+\end{tabularx}
+\caption{Design Decisions}
+\end{table}
+
+\section{Dashboard Ke 8 Sections}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{c l X}
+\toprule
+\textbf{\#} & \textbf{Section} & \textbf{Kya Dikhata Hai Aur Kyun} \\
+\midrule
+1 & \textbf{Navbar} & 3 status badges: Blockchain (green/red), AI Engine (green/red), Live Feed (green/red). Ek nazar mein pata chal jata hai ke kya chal raha hai kya nahi. \\
+2 & \textbf{Live Monitoring} & House A aur B ki readings --- Voltage, Current, Power, Relay status. Har 500ms pe update hota hai. \\
+3 & \textbf{AI Prediction} & 3 cards: Predicted power (aglay 1 min), Relay prediction (ON/OFF hona chahiye), Model accuracy (confidence bar ke saath). \\
+4 & \textbf{Chart} & Actual vs Predicted power ka line chart. Blue line = actual, purple dashed = predicted. Isse dikhta hai model kitna close hai. \\
+5 & \textbf{ML Model Status} & Model ki technical info: MAE, RMSE, MAPE, version, training date, total predictions count. \\
+6 & \textbf{Anomaly Alerts} & Agar koi abnormal reading aaye (voltage spike, negative power, etc.) toh yahan warning dikhti hai. \\
+7 & \textbf{Blockchain Stats} & Contract address, total transactions, total energy traded, network info. \\
+8 & \textbf{Transactions} & Recent transactions ki list --- har ek mein TX hash, power, energy, timestamp dikhta hai. \\
+\bottomrule
+\end{tabularx}
+\caption{Dashboard Ke 8 Sections}
+\end{table}
+
+\section{Data Polling --- Dashboard Data Kaise Leta Hai?}
+
+Dashboard continuously server se data \textbf{fetch} karta rehta hai. 2 alag speeds pe:
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Interval} & \textbf{Kya Fetch Hota Hai} & \textbf{Kyun Itni Speed} \\
+\midrule
+\textbf{Har 500ms} & Live sensor readings (House A, B) & Real-time feel chahiye --- 500ms se lagta hai ke values ``live'' hain \\
+\textbf{Har 5s} & AI prediction, ML status, anomalies, blockchain, transactions & Yeh data slowly change hota hai, 5s kaafi hai \\
+\bottomrule
+\end{tabularx}
+\caption{Dashboard Polling Intervals}
+\end{table}
+
+\textbf{Kyun 2 alag speeds?} Kyunke live readings har 500ms pe change hoti hain (sensor data), toh fast polling chahiye. Lekin blockchain stats ya AI prediction har second nahi badalta --- 5 seconds pe ek baar kaafi hai. Isse \textbf{network bandwidth bhi bach'ti hai} aur server pe load bhi kam hota hai.
+
+\section{Custom Canvas Chart}
+
+Dashboard mein ek chart hai jo \textbf{Actual power} (blue line) aur \textbf{Predicted power} (purple dashed line) ko overlay karke dikhata hai.
+
+Yeh chart \textbf{pure Canvas 2D API} se bana hai --- koi library nahi. Iska faida:
+\begin{itemize}[nosep]
+    \item Zero extra file load (Chart.js = 200KB+, hamara = 0 extra)
+    \item Exactly wahi design jo chahiye tha (dark theme matching)
+    \item Last 50 data points dikhata hai (older automatically hat jaate hain)
+\end{itemize}
+
+Har 5 seconds pe jab nayi prediction aati hai, chart mein ek nayi point add hoti hai --- actual aur predicted dono ki.

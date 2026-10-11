@@ -1,0 +1,106 @@
+% ══════════════════════════════════════════════════
+\chapter{System Startup \& Troubleshooting}
+% ══════════════════════════════════════════════════
+
+\section{Pehli Dafa Setup (First Time)}
+
+Pehli baar system chalane se pehle kuch cheezein install aur configure karni padti hain:
+
+\begin{enumerate}
+    \item \textbf{Ganache Install Karo:} Ganache GUI download karo (trufflesuite.com/ganache), open karo, ``Quickstart Ethereum'' click karo. Yeh port 7545 pe local blockchain chalayega aur 10 fake Ethereum accounts dega.
+    
+    \item \textbf{Blockchain Deploy Karo:} \texttt{blockchain} folder mein jao, \texttt{npm install} karo (dependencies install hongi), phir deployment script chalao. Yeh contract Ganache pe deploy kare ga aur backend folder mein automatically sab configure kare ga.
+    
+    \item \textbf{Backend Setup:} \texttt{backend} folder mein \texttt{npm install} karo --- Express, Web3.js aur baqi dependencies install ho jayengi.
+    
+    \item \textbf{ML Setup:} \texttt{ml-model} folder mein Python packages install karo (\texttt{pip install -r requirements.txt}). Phir ya toh synthetic data generate karo ya real data se model train karo.
+    
+    \item \textbf{Firmware Flash:} \texttt{secrets.h.template} ko copy karke \texttt{secrets.h} banao, apne WiFi credentials aur server IP fill karo, Arduino IDE se dono ESP32 boards pe upload karo.
+\end{enumerate}
+
+\section{Rozana Startup Sequence (Daily)}
+
+Har baar system chalane ke liye yeh \textbf{order follow karo} --- order important hai kyunke har cheez pichli cheez pe depend karti hai:
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{c l X}
+\toprule
+\textbf{Step} & \textbf{Kya Karo} & \textbf{Kyun Pehle} \\
+\midrule
+1 & Ganache start karo & Blockchain chahiye sabse pehle kyunke backend isse connect hota hai \\
+2 & Contract deploy karo & Agar Ganache restart kiya toh purana contract mit gaya --- naya chahiye \\
+3 & Backend start karo & ESP32 data yahan bhejte hain --- pehle chalna chahiye ESP32 se \\
+4 & AI server start karo & Optional --- backend iske bina bhi chalta hai \\
+5 & Ngrok start karo & Sirf agar ESP32 remote hai (alag network pe) \\
+6 & ESP32 boards power do & Sab servers pehle ready hone chahiyen \\
+7 & Browser mein dashboard kholo & Sab chal raha ho toh \texttt{http://localhost:3000} pe dekho \\
+\bottomrule
+\end{tabularx}
+\caption{Daily Startup Sequence --- Order Matters!}
+\end{table}
+
+\begin{warnbox}[Ganache Reset = Re-deploy!]
+\textbf{Bahut important:} Har baar Ganache close karke dubara kholne pe purani chain \textbf{mit jati hai}. Toh contract dubara deploy karna padega. Backend bhi restart karo taake naya contract address load ho. Real blockchain mein yeh problem nahi hoti --- sirf development mein hai.
+\end{warnbox}
+
+\section{Dashboard Pe Kya Dikhna Chahiye}
+
+Jab sab sahi chal raha ho toh dashboard ke navbar mein \textbf{3 green badges} dikhne chahiyen:
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Badge} & \textbf{Green Kab} & \textbf{Red Kab} \\
+\midrule
+\textbf{Blockchain} & Ganache chal raha hai + contract deployed hai & Ganache band hai ya contract deploy nahi hua \\
+\textbf{AI Engine} & Flask predict\_server.py chal raha hai & AI server band hai (predictions nahi aayengi) \\
+\textbf{Live Feed} & ESP32 boards data bhej rahe hain & ESP32 powered off hai ya WiFi disconnect \\
+\bottomrule
+\end{tabularx}
+\caption{Dashboard Status Badges}
+\end{table}
+
+\section{Config Files Reference}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{File} & \textbf{Kya Hai Aur Kab Change Karni Hai} \\
+\midrule
+\texttt{secrets.h} & WiFi password aur server IP. \textbf{Kab change:} WiFi change ho, PC ka IP change ho, ya Ngrok URL naya ho. \\
+\texttt{.env} & Ganache URL aur contract address. \textbf{Kab change:} Deploy script automatically update karta hai. Manually tab change karo jab port ya network change ho. \\
+\texttt{hardhat.config.js} & Blockchain network settings. \textbf{Kab change:} Normally kabhi nahi --- jab tak different network pe deploy na karna ho. \\
+\texttt{requirements.txt} & Python packages list. \textbf{Kab change:} Naya Python package add karna ho toh. \\
+\bottomrule
+\end{tabularx}
+\caption{Config Files --- Kab Kya Change Karna Hai}
+\end{table}
+
+\section{Common Problems Aur Solutions}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{X X}
+\toprule
+\textbf{Problem} & \textbf{Solution} \\
+\midrule
+Blockchain badge red hai & Ganache chal raha hai? Contract deploy kiya? Backend restart karo. \\
+AI badge red hai & \texttt{python predict\_server.py} chalao. Model trained hai? Pehle \texttt{train\_model.py} chalao. \\
+Live Feed red hai & ESP32 powered on hai? WiFi connected hai? Server ka IP sahi hai secrets.h mein? \\
+PZEM NaN readings aa rahi hain & Wiring check karo --- TX aur RX swap toh nahi hain? PZEM ko power supply mil rahi hai? \\
+LCD blank ya garbled hai & I2C address check karo (0x27 ya 0x3F?). SDA/SCL wires sahi pin pe hain? \\
+Ngrok timeout error & Ngrok free plan mein URL har 2 ghante change hota hai. Naya URL generate karo aur secrets.h mein update karke re-flash karo. \\
+Dashboard pe values 0.0 dikh rahe hain & Matlab ESP32 se data nahi aa raha. WiFi check karo, server URL check karo. \\
+Model not loaded error & Pehle \texttt{python train\_model.py} chalao --- model train hona chahiye use karne se pehle. \\
+Transaction blockchain pe record nahi ho rahi & Ganache mein ETH balance check karo. Contract address sahi hai .env mein? \\
+\bottomrule
+\end{tabularx}
+\caption{Troubleshooting Guide}
+\end{table}
+
+\begin{tipbox}[Debugging Tip]
+Agar kuch kaam nahi kar raha toh \textbf{terminal/console check karo}. Backend server terminal mein sab logs dikhata hai --- kya data aaya, kya blockchain pe gaya, kya error aayi. ESP32 ka Serial Monitor bhi sab status print karta hai. Logs padhna sabse fast debugging method hai.
+\end{tipbox}

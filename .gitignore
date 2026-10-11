@@ -1,0 +1,103 @@
+# ==============================================================================
+# Git Ignore Configuration - Smart Microgrid P2P Energy Trading System
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Environment & Sensitive Credentials
+# ------------------------------------------------------------------------------
+.env
+*.env
+!.env.example
+!backend/.env.example
+
+# ESP32 WiFi & Server Credentials
+firmware/**/secrets.h
+!firmware/secrets.h.template
+
+# ------------------------------------------------------------------------------
+# 2. Large Datasets & Runtime Telemetry Logs (>100MB exceeds GitHub limits)
+# ------------------------------------------------------------------------------
+backend/data/sensor_log.csv
+*.log
+logs/
+
+# ------------------------------------------------------------------------------
+# 3. Executable Binaries & Tools
+# ------------------------------------------------------------------------------
+*.exe
+ngrok.exe
+
+# ------------------------------------------------------------------------------
+# 4. Node.js & Backend Dependencies
+# ------------------------------------------------------------------------------
+node_modules/
+backend/node_modules/
+blockchain/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ------------------------------------------------------------------------------
+# 5. Blockchain / Hardhat Build Artifacts
+# ------------------------------------------------------------------------------
+blockchain/artifacts/
+blockchain/cache/
+blockchain/typechain/
+blockchain/typechain-types/
+
+# ------------------------------------------------------------------------------
+# 6. Python & Machine Learning Cache / Environments
+# ------------------------------------------------------------------------------
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.ipynb_checkpoints/
+env/
+venv/
+.venv/
+ENV/
+
+# ------------------------------------------------------------------------------
+# 7. Arduino / PlatformIO / Embedded Build Files
+# ------------------------------------------------------------------------------
+firmware/**/.pio/
+firmware/**/.vscode/
+firmware/**/build/
+
+# ------------------------------------------------------------------------------
+# 8. Operating System, Office & Editor Metadata
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Microsoft Office temporary lock files
+~$*
+*.tmp
+

@@ -1,0 +1,186 @@
+% ══════════════════════════════════════════════════
+\chapter{AI / ML Layer --- Load Prediction}
+% ══════════════════════════════════════════════════
+
+\section{AI Ka Role Is Project Mein}
+
+\begin{conceptbox}[AI Kya Karta Hai?]
+AI model \textbf{predict} karta hai ke aglay 1 minute mein House A kitni bijli use kare ga. Agar predicted consumption $< 1W$ hai toh iska matlab hai relay ON rehna chahiye (bijli House B ko jaaye). Isse system \textbf{pehle se} faisla kar sakta hai --- react karne ki bajaye \textbf{proactively} kaam karta hai.
+\end{conceptbox}
+
+\section{LSTM Kya Hai? --- Simple Explanation}
+
+\begin{conceptbox}[LSTM = Memory Wala Neural Network]
+Normal neural network sirf ek waqt ki cheez dekhta hai. LSTM (Long Short-Term Memory) \textbf{time ki chain} dekhta hai --- yeh yaad rakhta hai ke ``pichlay 10 seconds mein kya hua'' aur us pattern se agay ka predict karta hai.\\[0.3cm]
+\textbf{Example:} Agar pichlay 10 seconds mein power dheere dheere badh rahi hai (0.5W, 0.7W, 1.2W, 1.8W...), toh LSTM samajh jaye ga ke agay aur badhegi --- aur relay OFF karne ka predict kare ga.\\[0.3cm]
+\textbf{Bidirectional} ka matlab hai ke model dono taraf se dekhta hai --- aagay se bhi, peechay se bhi --- jis se aur accurate hota hai.
+\end{conceptbox}
+
+\section{Data --- AI Kahan Se Seekhta Hai?}
+
+AI model \texttt{sensor\_log.csv} file se seekhta hai. Yeh file do tareeqon se banti hai:
+
+\begin{enumerate}
+    \item \textbf{Real Data:} Jab hardware chal raha ho --- server har 500ms pe ek CSV row likhta hai (automatically)
+    \item \textbf{Synthetic Data:} Ek Python script (\texttt{generate\_data.py}) fake lekin realistic data bana deti hai --- jab hardware available na ho tab training ke liye kaam aata hai
+\end{enumerate}
+
+\section{Training Pipeline --- 10 Steps Mein Model Kaise Banta Hai}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{c X}
+\toprule
+\textbf{Step} & \textbf{Kya Hota Hai Aur Kyun} \\
+\midrule
+1 & \textbf{CSV Load:} sensor\_log.csv file padhta hai --- yeh raw data hai \\
+2 & \textbf{Outlier Removal:} Agar koi reading bahut unusual hai (sensor glitch) toh hatata hai. IQR method use hota hai --- agar koi value normal range se 3 guna zyada door hai toh remove. \\
+3 & \textbf{Smoothing:} PZEM sensor mein thoda noise hota hai (readings jump karti hain). Rolling average lagata hai (5 readings ka average) taake data smooth ho. \\
+4 & \textbf{Feature Selection:} 16 columns mein se sirf \textbf{11 kaam ki columns} choose karta hai (neeche table mein). \\
+5 & \textbf{Normalize:} Sab values ko 0 se 1 ke beech laata hai. \textbf{Kyun?} Kyunke voltage 220 hai aur current 0.045 --- itna bara farq model ko confuse karta hai. Normalize karne se sab barabar scale pe aa jate hain. \\
+6 & \textbf{Sequences:} 20 consecutive rows ka ek group banata hai (input) aur 1 minute baad ki power value target hoti hai (output). Yeh LSTM ko ``time ka pattern'' dikhata hai. \\
+7 & \textbf{Split:} Data ko 3 hisson mein todta hai --- 70\% training, 15\% validation, 15\% testing. \\
+8 & \textbf{Train:} BiLSTM model ko 80 epochs tak train karta hai (ek epoch = poora data ek baar dekh liya). \\
+9 & \textbf{Evaluate:} Test data pe accuracy check karta hai --- MAE, RMSE, MAPE calculate karta hai. \\
+10 & \textbf{Save:} Trained model, scaler, aur metadata files save karta hai. \\
+\bottomrule
+\end{tabularx}
+\caption{Complete Training Pipeline}
+\end{table}
+
+\section{11 Features --- Model Ko Kya Input Milta Hai?}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{c l X}
+\toprule
+\textbf{\#} & \textbf{Feature} & \textbf{Kyun Important Hai} \\
+\midrule
+1 & House A Voltage & Voltage se load pattern pata chalta hai \\
+2 & House A Current & Current consumption ka direct measure \\
+3 & House A Power & \textbf{TARGET --- yeh predict karna hai!} \\
+4 & House A Frequency & Grid stability indicator (50Hz normal) \\
+5 & House A Power Factor & Kitni efficiently bijli use ho rahi hai \\
+6 & House B Power & Dusre ghar ki demand se correlation ho sakta hai \\
+7 & House B Current & House B current reading \\
+8 & Relay State & Relay ON/OFF --- directly affects power flow \\
+9 & Receiving from A & House B receive kar raha hai ya nahi \\
+10 & Hour (0-23) & \textbf{Waqt bahut important hai} --- subah aur raat mein consumption alag hoti hai \\
+11 & Day of Week & Weekday/weekend pe usage pattern alag hota hai \\
+\bottomrule
+\end{tabularx}
+\caption{Model Input Features Aur Unki Importance}
+\end{table}
+
+\section{Model Architecture}
+
+Model ka design:
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    layer/.style={draw, rounded corners, minimum width=10cm, minimum height=0.9cm, align=center, font=\small},
+    arrow/.style={-{Stealth[length=2.5mm]}, thick}
+]
+\node[layer, fill=primaryblue!15] (l1) {\textbf{Layer 1:} Bidirectional LSTM --- 128 units};
+\node[layer, fill=codegray!10, below=0.3cm of l1] (bn1) {BatchNormalization $\rightarrow$ Dropout (25\%)};
+\node[layer, fill=primaryblue!15, below=0.3cm of bn1] (l2) {\textbf{Layer 2:} LSTM --- 64 units};
+\node[layer, fill=codegray!10, below=0.3cm of l2] (bn2) {BatchNormalization $\rightarrow$ Dropout (25\%)};
+\node[layer, fill=accent!15, below=0.3cm of bn2] (d1) {\textbf{Layer 3:} Dense --- 64 neurons (ReLU)};
+\node[layer, fill=accent!15, below=0.3cm of d1] (d2) {\textbf{Layer 4:} Dense --- 32 neurons (ReLU)};
+\node[layer, fill=warncolor!20, below=0.3cm of d2] (out) {\textbf{Output:} 1 neuron = Predicted Power (Watts)};
+
+\node[above=0.4cm of l1, font=\small\itshape] {Input: 20 timesteps $\times$ 11 features};
+
+\draw[arrow] (l1) -- (bn1);
+\draw[arrow] (bn1) -- (l2);
+\draw[arrow] (l2) -- (bn2);
+\draw[arrow] (bn2) -- (d1);
+\draw[arrow] (d1) -- (d2);
+\draw[arrow] (d2) -- (out);
+\end{tikzpicture}
+\caption{BiLSTM Model Architecture}
+\end{figure}
+
+\textbf{Har layer kya kar rahi hai:}
+
+\begin{itemize}
+    \item \textbf{Bidirectional LSTM (128 units):} Yeh main layer hai --- 20 timesteps ka pattern samajhti hai, aagay aur peechay dono directions se
+    \item \textbf{BatchNormalization:} Data ko stable rakhti hai training ke dauraan --- isse model tezi se seekhta hai
+    \item \textbf{Dropout (25\%):} Training mein randomly 25\% neurons band kar deti hai --- isse model \textbf{overfitting} se bachta hai (matlab sirf training data ratta nahi marta, generalize karta hai)
+    \item \textbf{LSTM (64 units):} Doosri LSTM layer jo pehli layer ke output ko aur refine karti hai
+    \item \textbf{Dense (64, 32):} Regular neural network layers jo final prediction ke liye combine karti hain
+    \item \textbf{Output (1 neuron):} Ek single number --- predicted power in Watts
+\end{itemize}
+
+\section{Training Ke Smart Features}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Feature} & \textbf{Kya Karta Hai Aur Kyun} \\
+\midrule
+Early Stopping & Agar 12 epochs mein model ki accuracy improve nahi ho rahi toh training \textbf{ruk jati hai}. Isse time waste nahi hota aur overfitting se bachta hai. \\
+Model Checkpoint & Har epoch ke baad check karta hai --- agar yeh best result hai toh model save kar lo. Final mein \textbf{sabse best wala model} milta hai, chahe training ke end pe worse ho jaye. \\
+Learning Rate Reduction & Agar 6 epochs mein improvement nahi toh learning rate \textbf{aadhi} kar do. Yeh model ko fine-tune karne mein madad karta hai --- jab bade steps se improvement nahi ho rahi toh chhote steps try karo. \\
+\bottomrule
+\end{tabularx}
+\caption{Smart Training Features}
+\end{table}
+
+\section{Prediction Server --- Flask API}
+
+Trained model ko use karne ke liye ek Flask server chalta hai port \textbf{5000} pe. Node.js backend har 5 seconds baad is se prediction mangta hai.
+
+\subsection{Prediction Kaise Hota Hai?}
+
+\begin{enumerate}
+    \item Server \texttt{sensor\_log.csv} ki \textbf{last 100 rows} padhta hai
+    \item Us mein se 11 feature columns select karta hai
+    \item MinMaxScaler se values ko \textbf{0--1 ke beech normalize} karta hai (wahi scaler jo training mein use hua tha)
+    \item Last \textbf{20 rows ka sequence} banata hai (model ko 20 timesteps chahiyen)
+    \item LSTM model pe \texttt{predict()} chalaata hai --- ek normalized number aata hai
+    \item Us number ko \textbf{inverse transform} karta hai --- wapas real Watts mein convert karta hai
+    \item \textbf{Confidence} calculate karta hai --- agar recent data stable hai toh confidence zyada, agar bahut vary kar raha hai toh kam
+    \item \textbf{Relay prediction:} Agar predicted power $< 1W$ toh relay ON rehna chahiye, warna OFF
+\end{enumerate}
+
+\subsection{Anomaly Detection}
+
+Server har prediction ke saath readings mein \textbf{anomalies} (abnormal values) bhi check karta hai:
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l l l X}
+\toprule
+\textbf{Type} & \textbf{Condition} & \textbf{Severity} & \textbf{Kyun Problem Hai} \\
+\midrule
+Power spike & $> 9.5W$ & Warning & Generation sirf 10W hai --- 9.5W consumption matlab almost sab use ho raha hai \\
+Negative power & $< -0.1W$ & Critical & Bijli negative nahi ho sakti --- sensor mein fault hai \\
+Overvoltage & $> 250V$ & Critical & 220V normal hai --- 250+ se equipment damage ho sakti hai \\
+Undervoltage & $< 180V$ & Warning & Bahut kam voltage --- appliances properly kaam nahi karenge \\
+\bottomrule
+\end{tabularx}
+\caption{Anomaly Detection Rules}
+\end{table}
+
+\section{Accuracy Metrics --- Model Kitna Sahi Hai?}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Metric} & \textbf{Formula} & \textbf{Matlab Kya Hai} \\
+\midrule
+MAE & $\frac{1}{n}\sum|actual - predicted|$ & Average error Watts mein. Agar MAE = 0.5W hai toh model average 0.5W galat hai. \\
+RMSE & $\sqrt{\frac{1}{n}\sum(actual - predicted)^2}$ & Bade errors ko zyada penalize karta hai. Agar kabhi kabhi bahut galat hai toh RMSE zyada hoga. \\
+MAPE & $\frac{100}{n}\sum\left|\frac{actual - predicted}{actual}\right|$ & Percentage mein error. 5\% MAPE matlab average 5\% galat. \\
+\bottomrule
+\end{tabularx}
+\caption{Model Accuracy Metrics}
+\end{table}
+
+\begin{tipbox}[Good Accuracy Values]
+Is project ke liye: MAE $< 0.5W$ aur MAPE $< 10\%$ excellent hai. Kyunke total generation sirf 10W hai, toh 0.5W error acceptable hai.
+\end{tipbox}

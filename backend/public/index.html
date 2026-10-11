@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Microgrid — AI-Powered Dashboard</title>
+    <meta name="description" content="Blockchain-based P2P Energy Trading System with AI Load Prediction">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f1117;
+            --bg-secondary: #1a1d27;
+            --bg-card: #1e2130;
+            --bg-card-hover: #252840;
+            --border: #2a2d3e;
+            --text-primary: #e8eaed;
+            --text-secondary: #8b8fa3;
+            --text-muted: #5f6377;
+            --accent-blue: #4f8ef7;
+            --accent-green: #34d399;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-purple: #a855f7;
+            --accent-cyan: #06b6d4;
+            --gradient-blue: linear-gradient(135deg, #4f8ef7, #3b82f6);
+            --gradient-green: linear-gradient(135deg, #34d399, #10b981);
+            --gradient-purple: linear-gradient(135deg, #a855f7, #8b5cf6);
+            --gradient-orange: linear-gradient(135deg, #f59e0b, #d97706);
+            --glass: rgba(30, 33, 48, 0.85);
+            --glow-blue: 0 0 20px rgba(79, 142, 247, 0.15);
+            --glow-green: 0 0 20px rgba(52, 211, 153, 0.15);
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ── Navbar ────────────────────────────────────── */
+        .navbar {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+        }
+        .navbar-content {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: var(--gradient-blue);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem;
+        }
+        .status-badges {
+            display: flex; gap: 8px; flex-wrap: wrap;
+        }
+        .badge {
+            display: flex; align-items: center; gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+        .badge .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        .badge-online .dot { background: var(--accent-green); }
+        .badge-offline .dot { background: var(--accent-red); animation: none; }
+        .badge-ai .dot { background: var(--accent-purple); }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* ── Container ─────────────────────────────────── */
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── Live Houses Grid ──────────────────────────── */
+        .live-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .house-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .house-card:hover {
+            border-color: var(--accent-blue);
+            box-shadow: var(--glow-blue);
+        }
+        .house-card.house-b:hover {
+            border-color: var(--accent-green);
+            box-shadow: var(--glow-green);
+        }
+
+        .house-header {
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .house-a-header { background: linear-gradient(135deg, rgba(79,142,247,0.15), rgba(59,130,246,0.05)); border-bottom: 1px solid rgba(79,142,247,0.2); }
+        .house-b-header { background: linear-gradient(135deg, rgba(52,211,153,0.15), rgba(16,185,129,0.05)); border-bottom: 1px solid rgba(52,211,153,0.2); }
+
+        .relay-badge {
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .relay-on { background: rgba(52,211,153,0.2); color: var(--accent-green); border: 1px solid rgba(52,211,153,0.3); }
+        .relay-off { background: rgba(239,68,68,0.15); color: var(--accent-red); border: 1px solid rgba(239,68,68,0.2); }
+
+        .live-metrics {
+            padding: 1rem 1.25rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+        .live-metric {
+            text-align: center;
+            padding: 0.75rem 0.5rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: var(--radius-sm);
+            border: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .live-metric:hover { border-color: var(--border); }
+        .live-value {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-variant-numeric: tabular-nums;
+        }
+        .live-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-top: 2px;
+        }
+
+        /* ── AI Prediction Section ─────────────────────── */
+        .ai-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        .ai-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .ai-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-purple);
+        }
+        .ai-card-title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .ai-big-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            font-variant-numeric: tabular-nums;
+        }
+        .ai-sub {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .confidence-bar {
+            margin-top: 0.75rem;
+            height: 6px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .confidence-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        /* ── Prediction Chart Area ─────────────────────── */
+        .chart-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .chart-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .chart-legend {
+            display: flex; gap: 1rem;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+        .legend-dot {
+            display: inline-block;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            margin-right: 4px;
+            vertical-align: middle;
+        }
+        .chart-canvas-wrapper {
+            width: 100%;
+            height: 200px;
+            position: relative;
+        }
+        #predictionChart {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ── Bottom Grid: Stats + Anomaly + Transactions ── */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+        }
+        .card-header {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        /* ── ML Model Status ───────────────────────────── */
+        .model-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+        .model-stat {
+            padding: 0.75rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+        .model-stat-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .model-stat-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 2px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ── Anomaly Alerts ────────────────────────────── */
+        .anomaly-item {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--accent-orange);
+            font-size: 0.85rem;
+        }
+        .anomaly-item.critical { border-left-color: var(--accent-red); }
+        .anomaly-icon { font-size: 1.1rem; flex-shrink: 0; }
+        .anomaly-text { color: var(--text-secondary); flex: 1; }
+        .anomaly-time { color: var(--text-muted); font-size: 0.7rem; white-space: nowrap; }
+
+        /* ── Blockchain Stats ──────────────────────────── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem 1.25rem;
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 0.25rem;
+            font-variant-numeric: tabular-nums;
+        }
+        .stat-value.small { font-size: 0.85rem; word-break: break-all; }
+
+        /* ── Transactions ──────────────────────────────── */
+        .transactions-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        .tx-item {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            transition: background 0.2s;
+        }
+        .tx-item:hover { background: var(--bg-card-hover); }
+        .tx-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .tx-id { font-weight: 600; color: var(--accent-blue); font-size: 0.85rem; }
+        .tx-time { color: var(--text-muted); font-size: 0.75rem; }
+        .tx-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+        .tx-field-label { color: var(--text-muted); font-size: 0.65rem; text-transform: uppercase; }
+        .tx-field-value { color: var(--text-primary); font-weight: 500; }
+
+        .empty-state {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            color: var(--text-muted);
+        }
+        .empty-icon { font-size: 2.5rem; margin-bottom: 0.75rem; opacity: 0.4; }
+
+        /* ── Responsive ────────────────────────────────── */
+        @media (max-width: 1100px) {
+            .ai-grid { grid-template-columns: 1fr 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .live-grid, .ai-grid, .bottom-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .navbar-content { flex-direction: column; }
+        }
+
+        /* ── System Status Bar ─────────────────────────── */
+        .system-status {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 0.6rem 1.5rem;
+        }
+        .status-bar {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            transition: all 0.4s ease;
+        }
+        .status-item .status-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+        }
+        .status-item.connected {
+            border-color: rgba(52, 211, 153, 0.3);
+            background: rgba(52, 211, 153, 0.08);
+        }
+        .status-item.connected .status-dot {
+            background: var(--accent-green);
+            box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
+            animation: pulse 2s infinite;
+        }
+        .status-item.connected .status-label { color: var(--accent-green); }
+        .status-item.disconnected {
+            border-color: rgba(239, 68, 68, 0.2);
+            background: rgba(239, 68, 68, 0.05);
+        }
+        .status-item.disconnected .status-dot {
+            background: var(--accent-red);
+            animation: none;
+        }
+        .status-item.disconnected .status-label { color: var(--accent-red); }
+        .status-label { letter-spacing: 0.3px; }
+
+        /* ── Animations ────────────────────────────────── */
+        .fade-in { animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ═══ Navbar ═══ -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                Smart Microgrid — AI Dashboard
+            </div>
+            <div class="status-badges">
+                <div id="blockchainBadge" class="badge badge-offline">
+                    <span class="dot"></span>
+                    <span>Blockchain</span>
+                </div>
+                <div id="aiBadge" class="badge badge-offline">
+                    <span class="dot"></span>
+                    <span>AI Engine</span>
+                </div>
+                <div id="liveBadge" class="badge badge-offline">
+                    <span class="dot"></span>
+                    <span>Live Feed</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ System Status Bar ═══ -->
+    <div class="system-status">
+        <div class="status-bar">
+            <div id="statusHouseA" class="status-item disconnected">
+                <span class="status-dot"></span>
+                <span class="status-label">🏠 House A</span>
+            </div>
+            <div id="statusHouseB" class="status-item disconnected">
+                <span class="status-dot"></span>
+                <span class="status-label">🏡 House B</span>
+            </div>
+            <div id="statusBackend" class="status-item connected">
+                <span class="status-dot"></span>
+                <span class="status-label">🖥️ Backend</span>
+            </div>
+            <div id="statusAI" class="status-item disconnected">
+                <span class="status-dot"></span>
+                <span class="status-label">🧠 AI Engine</span>
+            </div>
+            <div id="statusBlockchain" class="status-item disconnected">
+                <span class="status-dot"></span>
+                <span class="status-label">⛓️ Blockchain</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- ═══ Live House Cards ═══ -->
+        <div class="section-title">LIVE ENERGY MONITORING</div>
+        <div class="live-grid">
+            <!-- House A -->
+            <div class="house-card">
+                <div class="house-header house-a-header">
+                    <span>🏠 House A — Producer (Solar)</span>
+                    <span id="relayStatusA" class="relay-badge relay-off">Relay OFF</span>
+                </div>
+                <div class="live-metrics">
+                    <div class="live-metric">
+                        <div id="liveVoltA" class="live-value">0.0 V</div>
+                        <div class="live-label">Voltage</div>
+                    </div>
+                    <div class="live-metric">
+                        <div id="liveCurrA" class="live-value">0.000 A</div>
+                        <div class="live-label">Current</div>
+                    </div>
+                    <div class="live-metric">
+                        <div id="livePowerA" class="live-value">0.0 W</div>
+                        <div class="live-label">Consumption</div>
+                    </div>
+                    <div class="live-metric">
+                        <div id="liveSolarA" class="live-value">10 W</div>
+                        <div class="live-label">Solar Gen</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- House B -->
+            <div class="house-card house-b">
+                <div class="house-header house-b-header">
+                    <span>🏡 House B — Consumer</span>
+                    <span id="relayStatusB" class="relay-badge relay-off">Grid Power</span>
+                </div>
+                <div class="live-metrics">
+                    <div class="live-metric">
+                        <div id="liveVoltB" class="live-value">0.0 V</div>
+                        <div class="live-label">Voltage</div>
+                    </div>
+                    <div class="live-metric">
+                        <div id="liveCurrB" class="live-value">0.000 A</div>
+                        <div class="live-label">Current</div>
+                    </div>
+                    <div class="live-metric" style="grid-column: span 2;">
+                        <div id="livePowerB" class="live-value" style="font-size:1.75rem;">0.0 W</div>
+                        <div class="live-label">Receiving Power</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ AI Prediction Cards ═══ -->
+        <div class="section-title">🧠 AI LOAD PREDICTION</div>
+        <div class="ai-grid">
+            <!-- Predicted Power -->
+            <div class="ai-card fade-in">
+                <div class="ai-card-title">⚡ Predicted Power (Next 1 min)</div>
+                <div id="aiPredictedPower" class="ai-big-value">— W</div>
+                <div id="aiPredSub" class="ai-sub">Waiting for AI server...</div>
+                <div class="confidence-bar">
+                    <div id="aiConfidenceFill" class="confidence-fill" style="width:0%; background: var(--gradient-purple);"></div>
+                </div>
+            </div>
+
+            <!-- Relay Prediction -->
+            <div class="ai-card fade-in">
+                <div class="ai-card-title">🔌 Relay Prediction</div>
+                <div id="aiRelayPred" class="ai-big-value" style="font-size:1.5rem;">—</div>
+                <div id="aiRelaySub" class="ai-sub">Based on predicted load</div>
+            </div>
+
+            <!-- Model Accuracy -->
+            <div class="ai-card fade-in">
+                <div class="ai-card-title">📊 Model Accuracy</div>
+                <div id="aiAccuracy" class="ai-big-value" style="font-size:1.5rem;">—</div>
+                <div id="aiAccSub" class="ai-sub">Mean Absolute Error</div>
+            </div>
+        </div>
+
+        <!-- ═══ Prediction Chart ═══ -->
+        <div class="chart-section fade-in">
+            <div class="chart-header">
+                <div class="chart-title">📈 Actual vs Predicted Power</div>
+                <div class="chart-legend">
+                    <span><span class="legend-dot" style="background:var(--accent-blue);"></span>Actual</span>
+                    <span><span class="legend-dot" style="background:var(--accent-purple);"></span>Predicted</span>
+                </div>
+            </div>
+            <div class="chart-canvas-wrapper">
+                <canvas id="predictionChart"></canvas>
+            </div>
+        </div>
+
+        <!-- ═══ Model Status + Anomalies ═══ -->
+        <div class="bottom-grid">
+            <!-- ML Model Status -->
+            <div class="card">
+                <div class="card-header">
+                    <span>🧠 ML Model Status</span>
+                    <span id="mlStatusDot" class="badge badge-offline" style="padding:2px 8px;font-size:0.65rem;">Offline</span>
+                </div>
+                <div class="model-stats">
+                    <div class="model-stat">
+                        <div class="model-stat-label">MAE</div>
+                        <div id="mlMAE" class="model-stat-value">— W</div>
+                    </div>
+                    <div class="model-stat">
+                        <div class="model-stat-label">RMSE</div>
+                        <div id="mlRMSE" class="model-stat-value">— W</div>
+                    </div>
+                    <div class="model-stat">
+                        <div class="model-stat-label">MAPE</div>
+                        <div id="mlMAPE" class="model-stat-value">— %</div>
+                    </div>
+                    <div class="model-stat">
+                        <div class="model-stat-label">Predictions</div>
+                        <div id="mlPredCount" class="model-stat-value">0</div>
+                    </div>
+                    <div class="model-stat">
+                        <div class="model-stat-label">Model Version</div>
+                        <div id="mlVersion" class="model-stat-value">—</div>
+                    </div>
+                    <div class="model-stat">
+                        <div class="model-stat-label">Trained</div>
+                        <div id="mlTrained" class="model-stat-value">—</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anomaly Alerts -->
+            <div class="card">
+                <div class="card-header">
+                    <span>🚨 Anomaly Alerts</span>
+                    <span id="anomalyCount" class="badge" style="padding:2px 8px;font-size:0.65rem;">0</span>
+                </div>
+                <div id="anomalyList">
+                    <div class="empty-state" style="padding:1.5rem;">
+                        <div style="font-size:1.5rem;opacity:0.3;">✓</div>
+                        <div style="margin-top:0.25rem;font-size:0.85rem;">No anomalies detected</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ Blockchain Stats ═══ -->
+        <div class="section-title">⛓️ BLOCKCHAIN</div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Contract Address</div>
+                <div id="contractAddress" class="stat-value small">Loading...</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Transactions</div>
+                <div id="totalTransactions" class="stat-value">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Energy Traded</div>
+                <div id="totalEnergy" class="stat-value">0 kWh</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Network</div>
+                <div id="network" class="stat-value">Ganache</div>
+            </div>
+        </div>
+
+        <!-- ═══ Transactions ═══ -->
+        <div class="transactions-section">
+            <div class="card-header">
+                <span>📋 Recent Transactions</span>
+            </div>
+            <div id="transactionsList">
+                <div class="empty-state">
+                    <div class="empty-icon">📋</div>
+                    <div>Loading transactions...</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════════════
+        //  SIMPLE CANVAS CHART (no external dependencies)
+        // ═══════════════════════════════════════════════════════
+        class MiniChart {
+            constructor(canvasId, maxPoints = 50) {
+                this.canvas = document.getElementById(canvasId);
+                this.ctx = this.canvas.getContext('2d');
+                this.maxPoints = maxPoints;
+                this.actualData = [];
+                this.predictedData = [];
+                this.resize();
+                window.addEventListener('resize', () => this.resize());
+            }
+
+            resize() {
+                const parent = this.canvas.parentElement;
+                this.canvas.width = parent.clientWidth;
+                this.canvas.height = parent.clientHeight;
+                this.draw();
+            }
+
+            addPoint(actual, predicted) {
+                this.actualData.push(actual);
+                this.predictedData.push(predicted);
+                if (this.actualData.length > this.maxPoints) {
+                    this.actualData.shift();
+                    this.predictedData.shift();
+                }
+                this.draw();
+            }
+
+            loadHistory(history) {
+                this.actualData = history.map(h => h.actual);
+                this.predictedData = history.map(h => h.predicted);
+                this.draw();
+            }
+
+            draw() {
+                const { ctx, canvas } = this;
+                const W = canvas.width, H = canvas.height;
+                const pad = { top: 15, bottom: 25, left: 45, right: 15 };
+                const plotW = W - pad.left - pad.right;
+                const plotH = H - pad.top - pad.bottom;
+
+                ctx.clearRect(0, 0, W, H);
+
+                if (this.actualData.length < 2) {
+                    ctx.fillStyle = '#5f6377';
+                    ctx.font = '12px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Waiting for prediction data...', W / 2, H / 2);
+                    return;
+                }
+
+                // Determine Y range
+                const allVals = [...this.actualData, ...this.predictedData].filter(v => v != null);
+                let minY = Math.min(...allVals) - 0.5;
+                let maxY = Math.max(...allVals) + 0.5;
+                if (maxY - minY < 1) { minY -= 0.5; maxY += 0.5; }
+
+                const toX = (i) => pad.left + (i / (this.actualData.length - 1)) * plotW;
+                const toY = (v) => pad.top + plotH - ((v - minY) / (maxY - minY)) * plotH;
+
+                // Grid lines
+                ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+                ctx.lineWidth = 1;
+                const gridLines = 4;
+                for (let i = 0; i <= gridLines; i++) {
+                    const y = pad.top + (i / gridLines) * plotH;
+                    ctx.beginPath();
+                    ctx.moveTo(pad.left, y);
+                    ctx.lineTo(W - pad.right, y);
+                    ctx.stroke();
+
+                    // Y-axis labels
+                    const val = maxY - (i / gridLines) * (maxY - minY);
+                    ctx.fillStyle = '#5f6377';
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'right';
+                    ctx.fillText(val.toFixed(1) + 'W', pad.left - 5, y + 3);
+                }
+
+                // Draw actual line
+                ctx.strokeStyle = '#4f8ef7';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                this.actualData.forEach((v, i) => {
+                    const x = toX(i), y = toY(v);
+                    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+                });
+                ctx.stroke();
+
+                // Actual area fill
+                ctx.fillStyle = 'rgba(79, 142, 247, 0.08)';
+                ctx.beginPath();
+                ctx.moveTo(toX(0), toY(this.actualData[0]));
+                this.actualData.forEach((v, i) => ctx.lineTo(toX(i), toY(v)));
+                ctx.lineTo(toX(this.actualData.length - 1), pad.top + plotH);
+                ctx.lineTo(toX(0), pad.top + plotH);
+                ctx.closePath();
+                ctx.fill();
+
+                // Draw predicted line
+                ctx.strokeStyle = '#a855f7';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([4, 4]);
+                ctx.beginPath();
+                this.predictedData.forEach((v, i) => {
+                    if (v == null) return;
+                    const x = toX(i), y = toY(v);
+                    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+                });
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════
+        //  DATA FETCHING
+        // ═══════════════════════════════════════════════════════
+
+        const chart = new MiniChart('predictionChart', 50);
+        let isLoading = false;
+        let liveDataOk = false;
+
+        // ── Fetch live sensor data (every 500ms) ──
+        async function fetchLiveData() {
+            try {
+                const response = await fetch('/api/live');
+                if (!response.ok) throw new Error();
+                const data = await response.json();
+                if (!data.success || !data.data) throw new Error();
+
+                liveDataOk = true;
+                const houseA = data.data.houseA;
+                const houseB = data.data.houseB;
+                const lastUpdate = data.data.lastUpdate || 0;
+
+                // Track device connectivity
+                if (houseA.voltage > 0 || houseA.power > 0 || houseA.current > 0) {
+                    houseALastSeen = Date.now();
+                }
+                if (houseB.voltage > 0 || houseB.power > 0 || houseB.receivingFromHouseA) {
+                    houseBLastSeen = Date.now();
+                }
+
+                document.getElementById('liveVoltA').textContent = (houseA.voltage || 0).toFixed(1) + ' V';
+                document.getElementById('liveCurrA').textContent = (houseA.current || 0).toFixed(3) + ' A';
+                document.getElementById('livePowerA').textContent = (houseA.power || 0).toFixed(1) + ' W';
+                document.getElementById('liveSolarA').textContent = (houseA.solarProduction || 10) + ' W';
+
+                const relayA = document.getElementById('relayStatusA');
+                if (houseA.relayState) {
+                    relayA.textContent = 'Relay ON';
+                    relayA.className = 'relay-badge relay-on';
+                } else {
+                    relayA.textContent = 'Relay OFF';
+                    relayA.className = 'relay-badge relay-off';
+                }
+
+                document.getElementById('liveVoltB').textContent = (houseB.voltage || 0).toFixed(1) + ' V';
+                document.getElementById('liveCurrB').textContent = (houseB.current || 0).toFixed(3) + ' A';
+                document.getElementById('livePowerB').textContent = (houseB.power || 0).toFixed(1) + ' W';
+
+                const relayB = document.getElementById('relayStatusB');
+                if (houseB.receivingFromHouseA) {
+                    relayB.textContent = 'P2P Power';
+                    relayB.className = 'relay-badge relay-on';
+                } else {
+                    relayB.textContent = 'Grid Power';
+                    relayB.className = 'relay-badge relay-off';
+                }
+
+                updateBadge('liveBadge', true, 'Live Feed');
+                updateStatusBar('statusBackend', true);
+            } catch {
+                liveDataOk = false;
+                updateBadge('liveBadge', false, 'Live Feed');
+                updateStatusBar('statusBackend', false);
+            }
+        }
+
+        // ── Fetch AI predictions (every 5s) ──
+        async function fetchPrediction() {
+            try {
+                const response = await fetch('/api/predict');
+                if (!response.ok) throw new Error();
+                const data = await response.json();
+
+                if (data.success && data.predicted_power_watts !== undefined) {
+                    const pred = data.predicted_power_watts;
+                    const actual = data.current_power_watts;
+                    const conf = data.confidence || 0;
+
+                    document.getElementById('aiPredictedPower').textContent = pred.toFixed(2) + ' W';
+                    document.getElementById('aiPredSub').textContent =
+                        `Current: ${actual.toFixed(2)} W | Confidence: ${(conf * 100).toFixed(0)}%`;
+                    document.getElementById('aiConfidenceFill').style.width = (conf * 100) + '%';
+
+                    // Color confidence bar
+                    const confBar = document.getElementById('aiConfidenceFill');
+                    if (conf > 0.7) confBar.style.background = 'var(--gradient-green)';
+                    else if (conf > 0.4) confBar.style.background = 'var(--gradient-orange)';
+                    else confBar.style.background = 'linear-gradient(135deg, var(--accent-red), #dc2626)';
+
+                    // Relay prediction
+                    const relayPred = data.relay_prediction || '—';
+                    document.getElementById('aiRelayPred').textContent = relayPred;
+                    document.getElementById('aiRelayPred').style.color =
+                        relayPred === 'ON' ? 'var(--accent-green)' : 'var(--accent-red)';
+                    document.getElementById('aiRelaySub').textContent =
+                        data.relay_reason || (relayPred === 'ON' ? 'Low consumption predicted → share energy' : 'High consumption predicted → keep energy');
+
+                    // Add to chart
+                    chart.addPoint(actual, pred);
+
+                    updateBadge('aiBadge', true, 'AI Engine');
+                    updateStatusBar('statusAI', true);
+                } else {
+                    updateBadge('aiBadge', false, 'AI Engine');
+                    updateStatusBar('statusAI', false);
+                    document.getElementById('aiPredSub').textContent = data.message || 'AI server not connected';
+                }
+            } catch {
+                updateBadge('aiBadge', false, 'AI Engine');
+                updateStatusBar('statusAI', false);
+            }
+        }
+
+        // ── Fetch ML model status (every 15s) ──
+        async function fetchMLStatus() {
+            try {
+                const response = await fetch('/api/ml/status');
+                if (!response.ok) throw new Error();
+                const data = await response.json();
+
+                if (data.success && data.model) {
+                    const m = data.model;
+                    const metrics = m.training_metrics || {};
+
+                    document.getElementById('mlMAE').textContent = (metrics.mae_watts || 0).toFixed(3) + ' W';
+                    document.getElementById('mlRMSE').textContent = (metrics.rmse_watts || 0).toFixed(3) + ' W';
+                    document.getElementById('mlMAPE').textContent = (metrics.mape_percent || 0).toFixed(1) + ' %';
+                    document.getElementById('mlPredCount').textContent = data.predictions_recorded || 0;
+                    document.getElementById('mlVersion').textContent = 'v' + (m.model_version || '?');
+
+                    if (m.training_date) {
+                        const d = new Date(m.training_date);
+                        document.getElementById('mlTrained').textContent = d.toLocaleDateString();
+                    }
+
+                    // Accuracy card
+                    document.getElementById('aiAccuracy').textContent = (metrics.mae_watts || 0).toFixed(3) + ' W';
+                    document.getElementById('aiAccSub').textContent =
+                        `RMSE: ${(metrics.rmse_watts || 0).toFixed(3)} W | MAPE: ${(metrics.mape_percent || 0).toFixed(1)}%`;
+
+                    const mlDot = document.getElementById('mlStatusDot');
+                    mlDot.className = 'badge badge-ai';
+                    mlDot.querySelector('span:last-child') && (mlDot.textContent = '');
+                    mlDot.innerHTML = '<span class="dot"></span> Online';
+                } else {
+                    const mlDot = document.getElementById('mlStatusDot');
+                    mlDot.className = 'badge badge-offline';
+                    mlDot.innerHTML = '<span class="dot"></span> Offline';
+                }
+            } catch {
+                const mlDot = document.getElementById('mlStatusDot');
+                mlDot.className = 'badge badge-offline';
+                mlDot.innerHTML = '<span class="dot"></span> Offline';
+            }
+        }
+
+        // ── Fetch anomalies (every 15s) ──
+        async function fetchAnomalies() {
+            try {
+                const response = await fetch('/api/anomalies');
+                if (!response.ok) throw new Error();
+                const data = await response.json();
+
+                const list = document.getElementById('anomalyList');
+                const countEl = document.getElementById('anomalyCount');
+
+                if (data.success && data.anomalies && data.anomalies.length > 0) {
+                    countEl.textContent = data.anomalies.length;
+                    list.innerHTML = data.anomalies.slice(-5).reverse().map(a => {
+                        const cls = a.severity === 'critical' ? 'critical' : '';
+                        const icon = a.severity === 'critical' ? '🔴' : '🟡';
+                        const time = a.timestamp ? new Date(a.timestamp).toLocaleTimeString() : '';
+                        return `
+                            <div class="anomaly-item ${cls}">
+                                <span class="anomaly-icon">${icon}</span>
+                                <span class="anomaly-text">${a.message}</span>
+                                <span class="anomaly-time">${time}</span>
+                            </div>`;
+                    }).join('');
+                } else {
+                    countEl.textContent = '0';
+                    list.innerHTML = `
+                        <div class="empty-state" style="padding:1.5rem;">
+                            <div style="font-size:1.5rem;opacity:0.3;">✓</div>
+                            <div style="margin-top:0.25rem;font-size:0.85rem;">No anomalies detected</div>
+                        </div>`;
+                }
+            } catch { /* silent */ }
+        }
+
+        // ── Fetch blockchain data (every 5s) ──
+        async function loadData() {
+            if (isLoading) return;
+            isLoading = true;
+
+            try {
+                // Blockchain status
+                try {
+                    const statusResponse = await fetch('/api/blockchain/status');
+                    if (statusResponse.ok) {
+                        const status = await statusResponse.json();
+                        updateBadge('blockchainBadge', status.connected, 'Blockchain');
+                        updateStatusBar('statusBlockchain', status.connected);
+                        if (status.contractAddress) {
+                            document.getElementById('contractAddress').textContent = status.contractAddress;
+                        }
+                    }
+                } catch { updateBadge('blockchainBadge', false, 'Blockchain'); }
+
+                // Stats
+                try {
+                    const statsResponse = await fetch('/api/stats');
+                    if (statsResponse.ok) {
+                        const statsData = await statsResponse.json();
+                        const stats = statsData.stats || {};
+                        document.getElementById('totalTransactions').textContent = stats.totalTransactions || 0;
+                        document.getElementById('totalEnergy').textContent =
+                            parseFloat(stats.totalEnergy || 0).toFixed(3) + ' kWh';
+                    }
+                } catch { /* silent */ }
+
+                // Transactions
+                const txResponse = await fetch('/api/transactions');
+                if (txResponse.ok) {
+                    const txData = await txResponse.json();
+                    const transactions = txData.transactions || [];
+                    const txList = document.getElementById('transactionsList');
+
+                    if (transactions.length === 0) {
+                        txList.innerHTML = `
+                            <div class="empty-state">
+                                <div class="empty-icon">📋</div>
+                                <h3 style="font-size:1rem;">No transactions yet</h3>
+                                <p style="margin-top: 0.5rem; font-size:0.85rem;">Waiting for ESP32 data...</p>
+                            </div>`;
+                    } else {
+                        const recentTx = transactions.slice(-8).reverse();
+                        txList.innerHTML = recentTx.map(tx => {
+                            const date = new Date(tx.timestamp);
+                            return `
+                                <div class="tx-item">
+                                    <div class="tx-header">
+                                        <span class="tx-id">TX #${tx.id}</span>
+                                        <span class="tx-time">${date.toLocaleString()}</span>
+                                    </div>
+                                    <div class="tx-grid">
+                                        <div>
+                                            <div class="tx-field-label">From</div>
+                                            <div class="tx-field-value">${tx.from || 'House A'}</div>
+                                        </div>
+                                        <div>
+                                            <div class="tx-field-label">To</div>
+                                            <div class="tx-field-value">${tx.to || 'House B'}</div>
+                                        </div>
+                                        <div>
+                                            <div class="tx-field-label">Power</div>
+                                            <div class="tx-field-value">${parseFloat(tx.power || 0).toFixed(2)} W</div>
+                                        </div>
+                                        <div>
+                                            <div class="tx-field-label">Energy</div>
+                                            <div class="tx-field-value">${parseFloat(tx.energy || 0).toFixed(2)} Wh</div>
+                                        </div>
+                                        ${tx.blockNumber ? `<div>
+                                            <div class="tx-field-label">Block</div>
+                                            <div class="tx-field-value">#${tx.blockNumber}</div>
+                                        </div>` : ''}
+                                        ${tx.blockchainTx ? `<div>
+                                            <div class="tx-field-label">Status</div>
+                                            <div class="tx-field-value" style="color:var(--accent-green);">✓ Confirmed</div>
+                                        </div>` : ''}
+                                    </div>
+                                </div>`;
+                        }).join('');
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading data:', error);
+            } finally {
+                isLoading = false;
+            }
+        }
+
+        // ── Load prediction chart history on startup ──
+        async function loadPredictionHistory() {
+            try {
+                const response = await fetch('/api/predict/history?limit=50');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.history && data.history.length > 0) {
+                        chart.loadHistory(data.history);
+                    }
+                }
+            } catch { /* silent */ }
+        }
+
+        // ── Badge helper ──
+        function updateBadge(id, online, label) {
+            const el = document.getElementById(id);
+            if (online) {
+                el.className = 'badge ' + (id === 'aiBadge' ? 'badge-ai' : 'badge-online');
+            } else {
+                el.className = 'badge badge-offline';
+            }
+            el.innerHTML = `<span class="dot"></span><span>${label}</span>`;
+        }
+
+        // ── System Status Bar helper ──
+        let houseALastSeen = 0;
+        let houseBLastSeen = 0;
+
+        function updateStatusBar(id, online) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.className = 'status-item ' + (online ? 'connected' : 'disconnected');
+        }
+
+        function checkDeviceStatus() {
+            const now = Date.now();
+            // House A/B: considered connected if data received within last 5 seconds
+            updateStatusBar('statusHouseA', (now - houseALastSeen) < 5000);
+            updateStatusBar('statusHouseB', (now - houseBLastSeen) < 5000);
+        }
+        setInterval(checkDeviceStatus, 2000);
+
+        // ═══════════════════════════════════════════════════════
+        //  STARTUP + POLLING LOOPS
+        // ═══════════════════════════════════════════════════════
+        loadData();
+        fetchLiveData();
+        fetchPrediction();
+        fetchMLStatus();
+        fetchAnomalies();
+        loadPredictionHistory();
+
+        setInterval(fetchLiveData,    500);   // 500ms — live sensor data
+        setInterval(fetchPrediction,  5000);  // 5s    — AI predictions
+        setInterval(loadData,         5000);  // 5s    — blockchain + transactions
+        setInterval(fetchMLStatus,    15000); // 15s   — model info
+        setInterval(fetchAnomalies,   15000); // 15s   — anomaly log
+    </script>
+</body>
+
+</html>

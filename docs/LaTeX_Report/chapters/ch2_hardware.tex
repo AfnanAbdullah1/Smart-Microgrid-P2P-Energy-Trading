@@ -1,0 +1,209 @@
+% ══════════════════════════════════════════════════
+\chapter{Hardware Layer --- ESP32 Controllers}
+% ══════════════════════════════════════════════════
+
+\section{Hardware Ka Overall Picture}
+
+System mein \textbf{2 ESP32 boards} hain --- ek House A ke liye (producer), ek House B ke liye (consumer). Dono ke saath \textbf{PZEM-004T} power sensor laga hua hai jo real-time mein voltage, current aur power measure karta hai.
+
+\begin{tipbox}[Key Hardware Components]
+\begin{itemize}[nosep]
+    \item \textbf{ESP32 DevKit} --- WiFi-enabled microcontroller jo Arduino framework pe kaam karta hai
+    \item \textbf{PZEM-004T v3.0} --- AC power monitor (voltage, current, power, energy, frequency, PF sab measure karta hai)
+    \item \textbf{Relay Module} --- Active-LOW, 5V --- bijli ka raasta kholne/band karne ke liye
+    \item \textbf{1602A LCD + I2C} --- Status display (sirf House A mein laga hai)
+    \item \textbf{12V Charger + Inverter} --- Solar panel simulate karta hai (\textasciitilde10W AC output)
+\end{itemize}
+\end{tipbox}
+
+% ──────────────────────────────────────────────────
+\section{House A Controller --- Producer (Solar Wala Ghar)}
+
+\subsection{Hardware Connections}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l l l}
+\toprule
+\textbf{Component} & \textbf{ESP32 Pin} & \textbf{Note} \\
+\midrule
+PZEM TX wire & GPIO 18 & Sensor se data receive hota hai \\
+PZEM RX wire & GPIO 19 & Sensor ko commands jate hain \\
+Relay Control & GPIO 27 & Active-LOW (LOW=ON, HIGH=OFF) \\
+LCD SDA & GPIO 21 & I2C data line \\
+LCD SCL & GPIO 22 & I2C clock line (400kHz Fast Mode) \\
+\bottomrule
+\end{tabular}
+\caption{House A Pin Connections}
+\end{table}
+
+\subsection{Solar Generation Model}
+
+\begin{conceptbox}[Fixed Generation --- Kaise Kaam Karta Hai]
+Solar panel real nahi hai --- 12V charger se simulate kiya gaya hai:
+\begin{align*}
+\text{DC Input} &= 12V \times 1A = 12W \\
+\text{Inverter Efficiency} &= 80\% \text{ (HOPE H201)} \\
+\text{AC Output} &= 12W \times 0.80 = \mathbf{10W} \text{ at 220V} \\
+\text{Current} &= \frac{10W}{220V} \approx \mathbf{0.045A}
+\end{align*}
+\end{conceptbox}
+
+\textbf{Kyun fixed hai?} Kyunke is prototype mein actual solar panel nahi laga --- 12V charger use hua hai jo hamesha 12W output deta hai. Inverter ki efficiency 80\% hai, toh AC side pe \textasciitilde10W aata hai. Yeh value code mein constant rakhi gayi hai, sensor se nahi padhti.
+
+\subsection{Relay Decision Logic --- Sabse Important Cheez}
+
+Yeh poore project ka \textbf{dil} hai. System yeh faisla karta hai:
+
+\begin{enumerate}
+    \item PZEM sensor se House A ki \textbf{actual consumption} padhta hai
+    \item Agar consumption $\leq 1W$ hai (matlab koi appliance nahi chal raha) $\rightarrow$ \textbf{Relay ON} kar do
+    \item Relay ON hone se bijli ka raasta khul jata hai aur 10W solar power House B ko flow hoti hai
+    \item Agar consumption $> 1W$ ho jaye (koi appliance chala diya) $\rightarrow$ \textbf{Relay OFF} kar do
+    \item Relay OFF hone se bijli ka raasta band --- House A apni solar power khud use kare ga
+\end{enumerate}
+
+\begin{warnbox}[Active-LOW Relay Ko Samjho]
+Is relay mein logic \textbf{ulta} hai --- yeh beginners ke liye confusing hota hai:
+\begin{itemize}[nosep]
+    \item Pin ko \textbf{LOW} karo $\rightarrow$ Relay \textbf{ON} ho jata hai (bijli flow hoti hai)
+    \item Pin ko \textbf{HIGH} karo $\rightarrow$ Relay \textbf{OFF} ho jata hai (bijli band)
+\end{itemize}
+Yeh isliye hai kyunke relay module ka internal circuit aise design hua hai. ``Active-LOW'' ka yehi matlab hai --- LOW signal pe activate hota hai.
+\end{warnbox}
+
+\subsection{Kya Kya Bhejta Hai Server Ko?}
+
+House A ESP32 server ko \textbf{3 tarah ka data} bhejta hai, alag-alag waqfon pe:
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Kab} & \textbf{Kahan} & \textbf{Kya Bhejta Hai} \\
+\midrule
+Har 500ms & \texttt{/api/live} & Voltage, current, power, relay status (live dashboard ke liye) \\
+Har 60 seconds & \texttt{/api/transaction} & Energy transaction (sirf jab relay ON ho --- blockchain pe record hota hai) \\
+Har 500ms & PZEM sensor read & Local variables mein store karta hai (server ko nahi bhejta, LCD pe dikhata hai) \\
+\bottomrule
+\end{tabularx}
+\caption{House A Data Sending Schedule}
+\end{table}
+
+\textbf{Kyun 500ms?} Kyunke dashboard pe real-time feel chahiye. Agar 5 second pe bhejein toh lagta hai ke system slow hai. 500ms se dashboard bilkul live lagta hai.
+
+\textbf{Kyun 60 seconds pe transaction?} Kyunke blockchain pe likhna \textbf{mehnga} hai (gas fee lagti hai). Agar har 500ms pe likhein toh bahut zyada gas kharcha ho. 60 seconds ek reasonable balance hai.
+
+\subsection{LCD Display}
+
+House A mein ek 16x2 LCD hai jo \textbf{3 screens rotate} karta hai har 3 seconds baad:
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{c X}
+\toprule
+\textbf{Screen} & \textbf{Kya Dikhata Hai} \\
+\midrule
+1 & Consumption (Watts) + Relay ON/OFF + Excess power available \\
+2 & Voltage + Current + Frequency + Power Factor \\
+3 & Generation (10W) + Transaction count + Server/Blockchain/WiFi status \\
+\bottomrule
+\end{tabularx}
+\caption{LCD ke 3 Screens}
+\end{table}
+
+\textbf{180° Rotation Support:} Agar LCD physically ulta (upside-down) lagaya hai mounting ke liye, toh ek setting ON karne se text automatically reverse ho jata hai aur rows swap ho jati hain. Yeh isliye banaya gaya ke prototype mein LCD ulta mount karna pada tha.
+
+\textbf{Flicker-Free Design:} LCD mein ek common problem hai ``flicker'' --- jab screen clear karke dubara likhte hain toh jhilmilahaat aati hai. Is project mein \texttt{lcd.clear()} call nahi hoti --- poori 16-character row ek baar mein overwrite hoti hai, jis se koi flicker nahi aata.
+
+\subsection{Smart Boot Detection}
+
+\textbf{Problem tha:} Jab Arduino IDE ka Serial Monitor kholo toh ESP32 reset ho jata hai, aur poora startup sequence dubara chalta hai (WiFi connect, PZEM test, LCD messages). Yeh annoying hai.
+
+\textbf{Solution:} ESP32 ke andar ek function hai jo bata sakta hai ke reset \textbf{kyun} hua --- power-on se ya software se. System detect karta hai ke agar yeh \textbf{pehli baar power mili hai} toh full startup chalao. Agar sirf Serial Monitor khula hai (software reset) toh seedha kaam pe lag jao.
+
+\subsection{Ngrok Support}
+
+\textbf{Problem:} ESP32 aur PC ek hi WiFi pe hone chahiyen. Agar alag hain toh communication nahi hogi.
+
+\textbf{Solution:} Ngrok ek tool hai jo tumhare PC ka local server (\texttt{localhost:3000}) ko internet pe ek public HTTPS URL de deta hai. ESP32 us URL pe data bhejta hai, aur Ngrok usse tumhare PC tak pohancha deta hai. Firmware mein ek option hai --- agar Ngrok URL define karo toh HTTPS use kare ga, warna local IP pe HTTP use kare ga.
+
+% ──────────────────────────────────────────────────
+\section{House B Controller --- Consumer}
+
+House B comparatively \textbf{simple} hai --- iska kaam sirf apni consumption monitor karna aur server ko bhejna hai.
+
+\subsection{Hardware Connections}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l l l}
+\toprule
+\textbf{Component} & \textbf{ESP32 Pin} & \textbf{Note} \\
+\midrule
+PZEM TX wire & GPIO 16 & Serial2 pe \\
+PZEM RX wire & GPIO 17 & Serial2 pe \\
+LED & GPIO 2 & Built-in LED (blink speed se status pata chalta hai) \\
+\bottomrule
+\end{tabular}
+\caption{House B Pin Connections}
+\end{table}
+
+\subsection{Relay Detection --- Voltage Based}
+
+\textbf{Problem:} House B ka ESP32 directly relay se connected nahi hai (relay House A mein hai). Toh House B ko kaise pata chalega ke relay ON hai ya OFF?
+
+\textbf{Solution:} PZEM sensor ki \textbf{voltage reading} dekh kar. Jab relay ON hota hai toh House B ko voltage milti hai (\textgreater100V). Jab relay OFF hai toh voltage 0V aati hai. Yeh simple aur reliable method hai --- koi extra wire ya signal nahi chahiye.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l l}
+\toprule
+\textbf{Voltage Reading} & \textbf{Matlab} \\
+\midrule
+$> 100V$ & Relay ON hai --- House A se bijli aa rahi hai \\
+$< 10V$ & Relay OFF hai --- koi bijli nahi aa rahi \\
+\bottomrule
+\end{tabular}
+\caption{Voltage-Based Relay Detection}
+\end{table}
+
+\subsection{LED Blink Pattern}
+
+House B mein LCD nahi hai --- built-in LED ki blink speed se pata chalta hai kya ho raha hai:
+
+\begin{itemize}[nosep]
+    \item \textbf{Fast blink (har 250ms)} = House A se bijli mil rahi hai (relay ON)
+    \item \textbf{Slow blink (har 1 second)} = Grid power pe hai (relay OFF)
+\end{itemize}
+
+\subsection{House B Kya Bhejta Hai?}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Kab} & \textbf{Kahan} & \textbf{Kya} \\
+\midrule
+Har 500ms & \texttt{/api/live} & Voltage, current, power, receiving status \\
+Har 30 seconds & \texttt{/api/consumption} & Detailed consumption record (ML training ke liye) \\
+\bottomrule
+\end{tabularx}
+\caption{House B Data Sending}
+\end{table}
+
+% ──────────────────────────────────────────────────
+\section{Secrets Configuration --- Credentials}
+
+Dono ESP32 boards ko WiFi password aur server address chahiye. Yeh sensitive information ek alag file (\texttt{secrets.h}) mein rakhi jati hai jo project ke saath share nahi hoti. Ek template file di gayi hai jis mein apne values fill karke use karna hota hai.
+
+Is mein 3 cheezein set karni hoti hain:
+\begin{enumerate}[nosep]
+    \item \textbf{WiFi ka naam aur password} --- ESP32 internet se connect ho sake
+    \item \textbf{Server ka IP address} --- ESP32 ko pata ho ke data kahan bhejna hai
+    \item \textbf{Ngrok URL (optional)} --- Agar internet ke zariye communicate karna hai
+\end{enumerate}
+
+\begin{warnbox}[Security]
+Yeh file kabhi Git mein commit nahi karni --- agar koi repository dekhe toh usse tumhara WiFi password nahi milna chahiye.
+\end{warnbox}
