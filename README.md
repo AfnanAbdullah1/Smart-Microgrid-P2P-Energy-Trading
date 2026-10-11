@@ -137,8 +137,7 @@ This project builds a **direct peer-to-peer (P2P) microgrid**:
 │   └── QUICK_START.md        # Fast setup instructions
 │
 ├── Images/                   # System diagrams, schematics, and UI previews
-├── Poster/                   # Presentation posters and exhibition media
-├── Thesis_Report/            # Final academic thesis documents (DOCX & PDF)
+├── Final_Report/             # Final project thesis report (Final_Report.docx)
 ├── HOW_TO_START.md           # Full master startup documentation
 ├── LICENSE                   # MIT Open Source License
 └── README.md                 # Project README
